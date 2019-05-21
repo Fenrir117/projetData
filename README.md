@@ -10,7 +10,3 @@ Projet DATA :
 - Présentation Professionnelle PREPAREE en fin de projet.
 - Rendu le Mercredi 29 Mai à 17h00 (Pas une minute de retard ne sera accordée).
 
-
-idées, aide par Yohann:
--Creation du .htaccess qui redirige vers l'index.php
--Création d'un routeur avec $_SERVER['REQUEST_URI'] et un switch
