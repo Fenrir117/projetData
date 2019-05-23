@@ -21,6 +21,10 @@ h2 {
   font-size: 1.5rem;
 }
 
+h3 {
+  padding: 80px 0;
+}
+
 header .navbar {
   background-color: #013b8d;
   z-index: 20;
@@ -29,10 +33,18 @@ header .navbar {
   border-bottom: 2px solid #013b8d;
 }
 
+header .navbar .navbar-brand {
+  color: white;
+}
+
 header .navbar .menuHeader {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+}
+
+header .navbar .menuHeader .nav-link {
+  color: white;
 }
 
 header .choiceVersion {
@@ -65,6 +77,16 @@ section .cardSearch {
   text-align: center;
 }
 
+section .cardSearch button {
+  background-color: #013b8d;
+  color: white;
+  padding: 10px 0;
+  border: none;
+  width: 50%;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
 section .mapApi {
   height: 600px;
 }
@@ -76,6 +98,10 @@ section .mapApi iframe {
 
 .contactNone {
   background-color: #013b8d;
+}
+
+.contactNone h3 {
+  color: white;
 }
 
 .contactNone form {
@@ -102,7 +128,26 @@ section .mapApi iframe {
   border-radius: 5px;
   border-color: gainsboro;
   background-color: #013b8d;
+}
+
+.contactNone form .inputForm input::-webkit-input-placeholder {
   color: white;
+  font-size: 1.3rem;
+}
+
+.contactNone form .inputForm input:-ms-input-placeholder {
+  color: white;
+  font-size: 1.3rem;
+}
+
+.contactNone form .inputForm input::-ms-input-placeholder {
+  color: white;
+  font-size: 1.3rem;
+}
+
+.contactNone form .inputForm input::placeholder {
+  color: white;
+  font-size: 1.3rem;
 }
 
 .contactNone form .textareaForm {
@@ -115,11 +160,110 @@ section .mapApi iframe {
           flex-direction: column;
 }
 
+.contactNone form .textareaForm textarea {
+  padding: 10px 20px;
+  margin: 15px 0;
+  border-radius: 5px;
+  border-color: gainsboro;
+  background-color: #013b8d;
+}
+
+.contactNone form .textareaForm textarea::-webkit-input-placeholder {
+  color: white;
+  font-size: 1.3rem;
+}
+
+.contactNone form .textareaForm textarea:-ms-input-placeholder {
+  color: white;
+  font-size: 1.3rem;
+}
+
+.contactNone form .textareaForm textarea::-ms-input-placeholder {
+  color: white;
+  font-size: 1.3rem;
+}
+
+.contactNone form .textareaForm textarea::placeholder {
+  color: white;
+  font-size: 1.3rem;
+}
+
 .contactNone form button {
   background-color: white;
   color: #013b8d;
   border: none;
-  padding: 15px 0;
+  padding: 10px 0;
   width: 50%;
+  border-radius: 5px;
+  font-size: 1.5rem;
+}
+
+footer {
+  padding: 80px 0;
+  background-color: darkgray;
+}
+
+footer .infoFooter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+footer .socialNetwork {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+footer .socialNetwork .nom p {
+  margin-bottom: 0;
+  padding: 15px;
+  margin: 10px;
+}
+
+footer .socialNetwork .github {
+  margin: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+footer .socialNetwork .github a {
+  padding: 15px;
+  border: 1px white solid;
+  border-radius: 50%;
+}
+
+footer .socialNetwork .linkedin {
+  margin: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+footer .socialNetwork .linkedin a {
+  padding: 15px;
+  border: 1px white solid;
+  border-radius: 50%;
 }
 /*# sourceMappingURL=style.css.map */

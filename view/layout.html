@@ -5,7 +5,8 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <!-- Lien font-awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -95,21 +96,69 @@
   <!-- Section Formulaire pour contacter les entreprise -->
   <section class="container-fluid contactNone">
     <div class="container">
-        <h3>Etablissement</h3>       
-          <form class="row" action="formSociete" method="POST">
-            <div class="col-4 inputForm">
-              <input type="text" placeholder="NOM">
-              <input type="text" placeholder="Téléphone">
-              <input type="text" placeholder="E-mail">
-            </div>
-            <div class="col-8 textareaForm">
-              <textarea name="message" id="messagSociete" cols="30" rows="10" placeholder="Message"></textarea>
-              <button>Envoyer</button>
-            </div>
-            
-          </form>
-      </div>
+      <h3>Etablissement</h3>
+      <form class="row" action="formSociete" method="POST">
+        <div class="col-4 inputForm">
+          <input type="text" placeholder="Nom">
+          <input type="text" placeholder="Téléphone">
+          <input type="text" placeholder="E-mail">
+        </div>
+        <div class="col-8 textareaForm">
+          <textarea name="message" id="messagSociete" cols="30" rows="10" placeholder="Message"></textarea>
+          <button>Envoyer</button>
+        </div>
+
+      </form>
+    </div>
   </section>
+
+  <footer class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-4 copyright">
+          <p>Copyright 2019</p>
+          <a href="#">Mention légal</a>
+        </div>
+        <div class="col-4 infoFooter">
+          <h4>Ressourcess</h4>
+          <a href="#">Base de données</a>
+          <a href="#">Charte Graphique</a>
+        </div>
+        <div class="col-4 nosTravaux">
+          <h4>L'équipe</h4>
+          <div class="linkDevWeb">
+            <div class="socialNetwork">
+              <div class="nom">
+                <p>Richard</p>
+                <p>Julien</p>
+                <p>Jessy</p>
+              </div>
+              <div class="github">
+                  <a href="#"><i class="fab fa-github"></i></a>
+                  <a href="#"><i class="fab fa-github"></i></a>
+                  <a href="#"><i class="fab fa-github"></i></a>
+              </div>
+              <div class="linkedin">
+                  <a href="#"><i class="fab fa-linkedin-in"></i> </a>
+                  <a href="#"><i class="fab fa-linkedin-in"></i> </a>
+                  <a href="#"><i class="fab fa-linkedin-in"></i> </a>
+              </div>
+              <!-- <p class="richard">Richard <a href="#"><i class="fab fa-github"></i></a><a href="#"><i class="fab fa-linkedin-in"></i> </a></p>
+              <p class="julien">Julien <a href="#"><i class="fab fa-github"></i></a><a href="#"><i class="fab fa-linkedin-in"></i> </a></p>
+              <p class="jessy">Jessy <a href="#"><i class="fab fa-github"></i></a><a href="#"><i class="fab fa-linkedin-in"></i> </a></p>
+            -->
+            </div> 
+            <!-- <div class="socialNetwork github">
+              <a href="#">Github Richard</a>
+              <a href="#">Github Julien</a>
+              <a href="#">Github Jessy</a>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->

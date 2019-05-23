@@ -1,103 +1,183 @@
 // Regles général
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
-ul{
-    list-style-type: none;
+ul {
+  list-style-type: none;
 }
 
-h1{
-    padding: 80px 0;
-    text-align: right;
-    // font-size: 2.5rem; <- Taille d'origine précisé à titre indicatif
+h1 {
+  padding: 80px 0;
+  text-align: right;
+  // font-size: 2.5rem; <- Taille d'origine précisé à titre indicatif
 }
 
-h2{
-    font-size: 1.5rem;
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  padding: 80px 0;
 }
 
 // Section header
-header{
-    // Navbar du menu princpale
-   
+header {
+  // Navbar du menu princpale
 
-    .navbar{
-        background-color: #013b8d;
-        z-index: 20;
-        position: fixed;
-        padding: 25px 11%;
-        border-bottom: 2px solid #013b8d;
-        .menuHeader{
-            justify-content: flex-end;
-        }
+  .navbar {
+    background-color: #013b8d;
+    z-index: 20;
+    position: fixed;
+    padding: 25px 11%;
+    border-bottom: 2px solid #013b8d;
+    .navbar-brand {
+      color: white;
     }
+    .menuHeader {
+      justify-content: flex-end;
+      .nav-link {
+        color: white;
+      }
+    }
+  }
 
-    // Menu du choix de version de site (de façon à ce qui s'adapte au maximum de personne)
-    .choiceVersion{
-        padding: 100px 11% 0 11%;
-      ul{
-          display: flex;
-      }       
+  // Menu du choix de version de site (de façon à ce qui s'adapte au maximum de personne)
+  .choiceVersion {
+    padding: 100px 11% 0 11%;
+    ul {
+      display: flex;
     }
+  }
 }
 
 // Section avec la map
-section{
-    padding-bottom: 80px;
+section {
+  padding-bottom: 80px;
+  background-color: white;
+  .cardSearch {
+    height: 600px;
     background-color: white;
-    .cardSearch{
-        height: 600px;
-        background-color: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    button {
+      background-color: #013b8d;
+      color: white;
+      padding: 10px 0;
+      border: none;
+      width: 50%;
+      border-radius: 5px;
+      font-size: 1rem;
     }
-    .mapApi{
-        height: 600px;
-        iframe{
-            width: 100%;
-            height: 100%;
-        }
+  }
+  .mapApi {
+    height: 600px;
+    iframe {
+      width: 100%;
+      height: 100%;
     }
+  }
 }
 
 // Section formulaire de contact des Etablissement
-.contactNone{
-    background-color: #013b8d;
-    form{
-        display: flex;
-        justify-content: space-around;
-        .inputForm{
-            display: flex;
-            flex-direction: column;
-            input{
-                padding: 10px 20px;
-                margin: 15px 0;
-                border-radius: 5px;
-                border-color: rgb(220, 220, 220);
-                background-color: #013b8d;
-                color: white;
-            }
-        }
-        .textareaForm{
-            display: flex;
-            flex-direction: column;
-        }
-        button{
-            background-color: white;
-            color: #013b8d;
-            border: none;
-            padding: 15px 0;
-            width: 50%;
-        }
+.contactNone {
+  background-color: #013b8d;
+
+  h3 {
+    color: white;
+  }
+  form {
+    display: flex;
+    justify-content: space-around;
+    .inputForm {
+      display: flex;
+      flex-direction: column;
+      input {
+        padding: 10px 20px;
+        margin: 15px 0;
+        border-radius: 5px;
+        border-color: rgb(220, 220, 220);
+        background-color: #013b8d;
+      }
+      input::placeholder {
+        color: white;
+        font-size: 1.3rem;
+      }
     }
+    .textareaForm {
+      display: flex;
+      flex-direction: column;
+      textarea {
+        padding: 10px 20px;
+        margin: 15px 0;
+        border-radius: 5px;
+        border-color: rgb(220, 220, 220);
+        background-color: #013b8d;
+      }
+      textarea::placeholder {
+        color: white;
+        font-size: 1.3rem;
+      }
+    }
+    button {
+      background-color: white;
+      color: #013b8d;
+      border: none;
+      padding: 10px 0;
+      width: 50%;
+      border-radius: 5px;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+footer {
+  padding: 80px 0;
+  background-color: darkgray;
+  .infoFooter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .socialNetwork {
+    display: flex;
+    .nom {
+      p {
+        margin-bottom: 0;
+        padding: 15px;
+        margin: 10px;
+      }
+    }
+    .github {
+      margin: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      a {
+        padding: 15px;
+        border: 1px white solid;
+        border-radius: 50%;
+      }
+    }
+    .linkedin {
+      margin: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      a {
+        padding: 15px;
+        border: 1px white solid;
+        border-radius: 50%;
+      }
+    }
+  }
 }
