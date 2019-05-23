@@ -1,1 +1,125 @@
-h1{color: red;}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+h1 {
+  padding: 80px 0;
+  text-align: right;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+header .navbar {
+  background-color: #013b8d;
+  z-index: 20;
+  position: fixed;
+  padding: 25px 11%;
+  border-bottom: 2px solid #013b8d;
+}
+
+header .navbar .menuHeader {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+header .choiceVersion {
+  padding: 100px 11% 0 11%;
+}
+
+header .choiceVersion ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+section {
+  padding-bottom: 80px;
+  background-color: white;
+}
+
+section .cardSearch {
+  height: 600px;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  text-align: center;
+}
+
+section .mapApi {
+  height: 600px;
+}
+
+section .mapApi iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.contactNone {
+  background-color: #013b8d;
+}
+
+.contactNone form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.contactNone form .inputForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contactNone form .inputForm input {
+  padding: 10px 20px;
+  margin: 15px 0;
+  border-radius: 5px;
+  border-color: gainsboro;
+  background-color: #013b8d;
+  color: white;
+}
+
+.contactNone form .textareaForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contactNone form button {
+  background-color: white;
+  color: #013b8d;
+  border: none;
+  padding: 15px 0;
+  width: 50%;
+}
+/*# sourceMappingURL=style.css.map */
