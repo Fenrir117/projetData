@@ -64,6 +64,7 @@ section {
   background-color: white;
   .cardSearch {
     height: 600px;
+    border: 1px #013b8d solid;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -86,11 +87,13 @@ section {
       height: 100%;
     }
   }
+  #myMap { height: 500px; }
 }
 
 // Section formulaire de contact des Etablissement
 .contactNone {
   background-color: #013b8d;
+  display: none;
 
   h3 {
     color: white;
@@ -141,8 +144,9 @@ section {
 }
 
 footer {
+    color: white;
   padding: 80px 0;
-  background-color: darkgray;
+  background-color: rgb(50, 50, 50);
   .infoFooter {
     display: flex;
     flex-direction: column;
@@ -163,9 +167,14 @@ footer {
       flex-direction: column;
       justify-content: space-between;
       a {
-        padding: 15px;
+        padding: 10px 12px;
         border: 1px white solid;
         border-radius: 50%;
+      }
+      a:hover{
+          border-color: gold;
+          background-color: #013b8d;
+          color: white;
       }
     }
     .linkedin {
@@ -174,10 +183,15 @@ footer {
       flex-direction: column;
       justify-content: space-between;
       a {
-        padding: 15px;
+        padding: 10px 12px;
         border: 1px white solid;
         border-radius: 50%;
       }
+      a:hover{
+        border-color: gold;
+        background-color: white;
+        color: #013b8d;
+    }
     }
   }
 }

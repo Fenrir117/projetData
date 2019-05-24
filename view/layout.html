@@ -10,6 +10,10 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Lien pour leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
   <!-- Lien du css -->
   <link rel="stylesheet" href="public/css/style.css">
   <title>Projet Data</title>
@@ -84,10 +88,8 @@
           </div>
         </div>
         <!-- Map de navigation -->
-        <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-0 mapApi">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46383.828468357584!2d6.036510182000638!3d47.21530034442049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478d62faf0ee130b%3A0x409ce34b313ed30!2s25000+Besan%C3%A7on!5e0!3m2!1sfr!2sfr!4v1558445590735!5m2!1sfr!2sfr"
-            allowfullscreen></iframe>
+        <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-0 mapApi" id="myMap">
+
         </div>
       </div>
     </div>
@@ -115,19 +117,22 @@
   <footer class="container-fluid">
     <div class="container">
       <div class="row">
+<div class="titleFooterElement"></div>
         <div class="col-4 copyright">
+            <div class="titleFooterElement"><p>test</p></div>
+
           <p>Copyright 2019</p>
           <a href="#">Mention légal</a>
         </div>
         <div class="col-4 infoFooter">
-          <h4>Ressourcess</h4>
+            <div class="titleFooterElement"><p>test</p></div>
+
           <a href="#">Base de données</a>
           <a href="#">Charte Graphique</a>
         </div>
-        <div class="col-4 nosTravaux">
-          <h4>L'équipe</h4>
-          <div class="linkDevWeb">
-            <div class="socialNetwork">
+            <div class="col-4 socialNetwork">
+                <div class="titleFooterElement"><p>test</p></div>
+
               <div class="nom">
                 <p>Richard</p>
                 <p>Julien</p>
@@ -143,22 +148,17 @@
                   <a href="#"><i class="fab fa-linkedin-in"></i> </a>
                   <a href="#"><i class="fab fa-linkedin-in"></i> </a>
               </div>
-              <!-- <p class="richard">Richard <a href="#"><i class="fab fa-github"></i></a><a href="#"><i class="fab fa-linkedin-in"></i> </a></p>
-              <p class="julien">Julien <a href="#"><i class="fab fa-github"></i></a><a href="#"><i class="fab fa-linkedin-in"></i> </a></p>
-              <p class="jessy">Jessy <a href="#"><i class="fab fa-github"></i></a><a href="#"><i class="fab fa-linkedin-in"></i> </a></p>
-            -->
-            </div> 
-            <!-- <div class="socialNetwork github">
-              <a href="#">Github Richard</a>
-              <a href="#">Github Julien</a>
-              <a href="#">Github Jessy</a>
-            </div> -->
-          </div>
+            </div>
         </div>
       </div>
     </div>
 
   </footer>
+
+<!-- Javascript pour leaflet -->
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+  integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+  crossorigin=""></script>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -171,6 +171,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+    <script src="public/js/contact_entreprise.js"></script>
 </body>
 
 </html>
