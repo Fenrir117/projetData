@@ -34,7 +34,7 @@ header {
 
   .navbar {
     background-color: #013b8d;
-    z-index: 20;
+    z-index: 1010;
     position: fixed;
     padding: 25px 11%;
     border-bottom: 2px solid #013b8d;
@@ -82,12 +82,7 @@ section {
   }
   .mapApi {
     height: 600px;
-    iframe {
-      width: 100%;
-      height: 100%;
-    }
   }
-  #myMap { height: 500px; }
 }
 
 // Section formulaire de contact des Etablissement

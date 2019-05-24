@@ -152,8 +152,18 @@
         </div>
       </div>
     </div>
-
+<input type=hidden id=variableAPasser value='<?php echo $monTableauToutBeauEnJson; ?>'>
   </footer>
+<!-- HTML -->
+
+
+
+
+  <script> 
+    var variableRecuperee = document.querySelector('#variableAPasser').value;
+    console.log(variableRecuperee);
+    </script>
+
 
 <!-- Javascript pour leaflet -->
   <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"

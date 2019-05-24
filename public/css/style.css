@@ -27,7 +27,7 @@ h3 {
 
 header .navbar {
   background-color: #013b8d;
-  z-index: 20;
+  z-index: 1010;
   position: fixed;
   padding: 25px 11%;
   border-bottom: 2px solid #013b8d;
@@ -90,15 +90,6 @@ section .cardSearch button {
 
 section .mapApi {
   height: 600px;
-}
-
-section .mapApi iframe {
-  width: 100%;
-  height: 100%;
-}
-
-section #myMap {
-  height: 500px;
 }
 
 .contactNone {
