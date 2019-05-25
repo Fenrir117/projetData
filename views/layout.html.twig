@@ -1,0 +1,23 @@
+{{ include('head.html.twig') }}
+
+
+
+    <h1>Hello, world!</h1>
+
+    <p>
+      {{ name }}
+      {{ test }}
+    </p>
+
+    <p>
+      {% for row in result %}
+        {{ row.CID }} <br>
+        {{ row.LATITUDE }} <br>
+        {{ row.LONGITUDE }} <br><br>
+      {% endfor %}
+    </p>  
+    
+    
+
+
+{{ include('footer.html.twig') }}
