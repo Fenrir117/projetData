@@ -1,47 +1,69 @@
 <?php
 include('view/layout.html');
-?>
-<?php
-try
-{
-	// On se connecte à MySQL
-	$bdd = new PDO('mysql:host=localhost;dbname=tourismehandi;charset=utf8', 'root', '');
+// get the url in address bar
+$uri = $_SERVER['REQUEST_URI'];
+// fill the array $parts with each folder name found in url
+$parts = explode('/', rtrim($uri, '/'));
+// used to know $parts content 
+// print_r($parts);
+// $parts[3] because $parts[2] is "app"
+// if $parts[3] doesn't exists
+if (!array_key_exists(3, $parts)) {
+    // fill it with nothing; now it exists
+    $parts[3] = array(6 => "");
 }
-catch(Exception $e)
-{
-	// En cas d'erreur, on affiche un message et on arrête tout
-        die('Erreur : '.$e->getMessage());
+
+
+
+// cette partie devrait virer dans le contrôleur
+// twig
+require_once 'vendor/autoload.php';
+$loader = new \Twig\Loader\FilesystemLoader('views');
+$twig = new \Twig\Environment($loader);
+
+
+
+// router
+switch ($parts[3]) {
+    case '': 
+        // AFFICHER LA PAGE D'ACCUEIL
+        break;
+    case 'accueil':
+        // AFFICHER LA PAGE D'ACCUEIL
+        break;
+    // EN ATTENDANT LE CAS CHOISI EN GROUPE :
+    case 'all':
+        require_once 'controllers/Handi_Controller.php';
+        $handiController = new Handi_Controller();
+        // à utiliser une fois le twig dans le contrôleur
+        // $handiController->c_GetAll();
+        // en attendant
+        $result = $handiController->c_GetAll();
+        // cette partie devrait virer dans le contrôleur
+        echo $twig->render('layout.html.twig', [
+            'result' => $result,
+            'test' => "ok"
+        ]);
+        break;
+    // AJOUTER DES CAS
+    default :
+        // FAIRE UNE PAGE 404
+        // EN ATTENDANT 
+        echo 'ERREUR 404';
 }
 
-// Si tout va bien, on peut continuer
+// ROUTER 
+// nomDeLaFunction();
 
+//CONTROLLER
+// function nomDeLaFunction(){
+    //CHARGEMENTDU MODEL
+    //RECUPERATION DES DONNEES
+    // CHARGEMENT DE LA VIEW + DONNEES  // marche pas pour l'instant, obligé de faire depuis index.php
+// }
 
-
-
-$monTableauToutBeau = array();
-$req = "SELECT LONGITUDE FROM infos";
-foreach  ($bdd->query($req) as $row) {
-    $monTableauToutBeau[] = $row['LONGITUDE'];
-}
- 
-// print_r($monTableauToutBeau);
- 
-$monTableauToutBeauEnJson = json_encode($monTableauToutBeau);
-
-echo $monTableauToutBeauEnJson;
-
-
-
-// On récupère tout le contenu de la table
-// $reponse = $bdd->query('SELECT * FROM infos');
-
-?>
-
-<!-- //Code JavaScript
-var requete = new XMLHttpRequest();
-requete.onload = function() {
- //La variable à passer est alors contenue dans l'objet response et l'attribut responseText.
- var variableARecuperee = this.responseText;
-};
-requete.open(get, script.php, true); //True pour que l'exécution du script continue pendant le chargement, false pour attendre.
-requete.send(); -->
+//MODEL
+    //connexion BDD
+    // REQUETE SQL
+    // STOCKAGE DES DONNES DANS UNE VARIABLE
+    //FERMETURE BDD

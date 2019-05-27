@@ -6,14 +6,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- Lien font-awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- Lien pour leaflet -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+  <!-- Lien pour leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-    crossorigin=""/>
+    crossorigin="" />
   <!-- Lien du css -->
   <link rel="stylesheet" href="public/css/style.css">
   <title>Projet Data</title>
@@ -23,7 +24,7 @@
 
   <header>
     <!-- Navbar fixe du site  -->
-    <nav class="navbar navbar-expand-lg navbar-light w-100 justify-content-around">
+    <nav class="navbar navbarGauche navbar-expand-lg navbar-light w-100 justify-content-around">
       <!-- Logo, enseigne du site -->
       <a class="navbar-brand" href="#">Navbar</a>
       <!-- Bouton qui apparait seulement sur version tablet et mobile en cliquant le menu apparait -->
@@ -32,7 +33,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <!-- Menu du site -->
-      <div class="menuHeader collapse navbar-collapse" id="navbarNav">
+      <div class="menuHeader menuHeaderGauche collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" href="#">Accueil</a>
@@ -50,14 +51,14 @@
     <div class="choiceVersion">
       <p>Accesibilité du site</p>
       <ul>
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Droitier</a>
+        <li class="nav-item">
+          <button class="gaucher">Gaucher</button>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Gaucher</a>
+          <button class="droitier">Droitier</button>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">DMLA</a>
+          <button class="DMLA">DMLA</button>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Mal-Voyant</a>
@@ -71,9 +72,12 @@
     <div class="container">
       <!-- Titre principal du site -->
       <h1>Titre du site</h1>
-      <div class="row">
+      <div class="row contentMap">
+        <!-- Map de navigation -->
+        <div class="col-12 col-lg-8 offset-lg-0 mapApi" id="myMap"></div>
+
         <!-- Cadre avec les informations de l'etablissement -->
-        <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-4 offset-lg-0 cardSearch">
+        <div class="col-12 col-lg-4 offset-lg-0 cardSearch">
           <h2>Information sur société labelisé</h2>
           <div class="nameInfos">
             <h3>Etablissement</h3>
@@ -86,10 +90,6 @@
             <p>Ville</p>
             <button class="contactSociete">Contacter l'Entreprise</button>
           </div>
-        </div>
-        <!-- Map de navigation -->
-        <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-0 mapApi" id="myMap">
-
         </div>
       </div>
     </div>
@@ -114,61 +114,67 @@
     </div>
   </section>
 
-  <footer class="container-fluid">
+  <footer class="container-fluid d-none">
     <div class="container">
       <div class="row">
-<div class="titleFooterElement"></div>
+        <div class="titleFooterElement"></div>
         <div class="col-4 copyright">
-            <div class="titleFooterElement"><p>test</p></div>
+          <div class="titleFooterElement">
+            <p>test</p>
+          </div>
 
           <p>Copyright 2019</p>
           <a href="#">Mention légal</a>
         </div>
         <div class="col-4 infoFooter">
-            <div class="titleFooterElement"><p>test</p></div>
+          <div class="titleFooterElement">
+            <p>test</p>
+          </div>
 
           <a href="#">Base de données</a>
           <a href="#">Charte Graphique</a>
         </div>
-            <div class="col-4 socialNetwork">
-                <div class="titleFooterElement"><p>test</p></div>
+        <div class="col-4 socialNetwork">
+          <div class="titleFooterElement">
+            <p>test</p>
+          </div>
 
-              <div class="nom">
-                <p>Richard</p>
-                <p>Julien</p>
-                <p>Jessy</p>
-              </div>
-              <div class="github">
-                  <a href="#"><i class="fab fa-github"></i></a>
-                  <a href="#"><i class="fab fa-github"></i></a>
-                  <a href="#"><i class="fab fa-github"></i></a>
-              </div>
-              <div class="linkedin">
-                  <a href="#"><i class="fab fa-linkedin-in"></i> </a>
-                  <a href="#"><i class="fab fa-linkedin-in"></i> </a>
-                  <a href="#"><i class="fab fa-linkedin-in"></i> </a>
-              </div>
-            </div>
+          <div class="nom">
+            <p>Richard</p>
+            <p>Julien</p>
+            <p>Jessy</p>
+          </div>
+          <div class="github">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </div>
+          <div class="linkedin">
+            <a href="#"><i class="fab fa-linkedin-in"></i> </a>
+            <a href="#"><i class="fab fa-linkedin-in"></i> </a>
+            <a href="#"><i class="fab fa-linkedin-in"></i> </a>
+          </div>
         </div>
       </div>
     </div>
-<input type=hidden id=variableAPasser value='<?php echo $monTableauToutBeauEnJson; ?>'>
+    </div>
+    <!-- <input type=hidden id=variableAPasser value='<?php echo $monTableauToutBeauEnJson; ?>'> -->
   </footer>
-<!-- HTML -->
+  <!-- HTML -->
 
 
 
-
+  <!-- 
   <script> 
     var variableRecuperee = document.querySelector('#variableAPasser').value;
     console.log(variableRecuperee);
-    </script>
+    </script> -->
 
 
-<!-- Javascript pour leaflet -->
+  <!-- Javascript pour leaflet -->
   <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
-  integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
-  crossorigin=""></script>
+    integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+    crossorigin=""></script>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -181,7 +187,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-    <script src="public/js/contact_entreprise.js"></script>
+  <script src="public/js/contact_entreprise.js"></script>
 </body>
 
 </html>

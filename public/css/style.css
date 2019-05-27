@@ -62,7 +62,13 @@ section {
   background-color: white;
 }
 
-section .cardSearch {
+@media only screen and (max-width: 991px) {
+  section .contentMap {
+    position: relative;
+  }
+}
+
+section .contentMap .cardSearch {
   height: 600px;
   border: 1px #013b8d solid;
   background-color: white;
@@ -78,7 +84,7 @@ section .cardSearch {
   text-align: center;
 }
 
-section .cardSearch button {
+section .contentMap .cardSearch button {
   background-color: #013b8d;
   color: white;
   padding: 10px 0;
@@ -88,7 +94,14 @@ section .cardSearch button {
   font-size: 1rem;
 }
 
-section .mapApi {
+@media only screen and (max-width: 991px) {
+  section .contentMap .cardSearch {
+    position: absolute;
+    z-index: 1005;
+  }
+}
+
+section .contentMap .mapApi {
   height: 600px;
 }
 
