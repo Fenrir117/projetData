@@ -109,3 +109,8 @@ switch ($parts[3]) {
     // REQUETE SQL
     // STOCKAGE DES DONNES DANS UNE VARIABLE
     //FERMETURE BDD
+<?php
+include('view/layout.html');
+
+// test
+?>
