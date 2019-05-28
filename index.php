@@ -35,6 +35,12 @@ switch ($parts[3]) {
     case 'accueil':
         // AFFICHER LA PAGE D'ACCUEIL
         break;
+    case 'graph':
+        // AFFICHER LA PAGE DE GRAPH
+        break;
+    case 'contact':
+        // AFFICHER LA PAGE DE CONTACT
+        break;
     // EN ATTENDANT LE CAS CHOISI EN GROUPE :
     case 'all':
         require_once 'controllers/Handi_Controller.php';
@@ -86,9 +92,11 @@ switch ($parts[3]) {
         ]);
         break;
     default:
-        // FAIRE UNE PAGE 404
-        // EN ATTENDANT 
-        echo 'ERREUR 404';
+                    
+        header("Location: http://localhost/projet_018_data/app/views/404.html"); /* Redirection du navigateur */
+
+        /* Assurez-vous que la suite du code ne soit pas exécutée une fois la redirection effectuée. */
+        exit;
 }
 
 // ROUTER 
