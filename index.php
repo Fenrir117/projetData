@@ -82,15 +82,15 @@ switch ($parts[3]) {
             'test' => "ok"
         ]);
         break;
-    case 'filtre':
-        require_once 'controllers/Handi_Controller.php';
-        $handiController = new Handi_controller();
-        $result = $handiController->c_GetFilter($_POST);
-        echo $twig->render('layout.html.twig', [
-            'result' => $result,
-            'test' => "ok"
-        ]);
-        break;
+    // case 'filtre':
+    //     require_once 'controllers/Handi_Controller.php';
+    //     $handiController = new Handi_controller();
+    //     $result = $handiController->c_GetFilter($_POST);
+    //     echo $twig->render('layout.html.twig', [
+    //         'result' => $result,
+    //         'test' => "ok"
+    //     ]);
+    //     break;
     default:
                     
         header("Location: http://localhost/projet_018_data/app/views/404.html"); /* Redirection du navigateur */
