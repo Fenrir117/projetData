@@ -1,0 +1,104 @@
+{% extends 'base_template.html.twig' %}
+
+{% block css %}
+
+{% endblock %}
+
+
+
+{% block main %}  <!-- Section avec la map et les informations liées à l'etablissement choisit -->
+<section class="container-fluid">
+  <div class="container">
+    <!-- Titre principal du site -->
+    <h1>Titre du site</h1>
+    <div class="row contentMap">
+      <!-- Map de navigation -->
+      <div class="col-12 col-lg-8 offset-lg-0 mapApi" id="myMap"></div>
+
+      <!-- Cadre avec les informations de l'etablissement -->
+      <div class="col-12 col-lg-4 offset-lg-0 cardSearch">
+        <h2>Information sur société labelisée</h2>
+        <div class="nameInfos">
+          <h3>Etablissement</h3>
+          <p>Activité</p>
+        </div>
+        <img class="img-fluid" src="" alt="">
+        <div class="adressInfos">
+          <p>Adresse</p>
+          <p>Code postale</p>
+          <p>Ville</p>
+          <button class="contactSociete">Contacter l'Entreprise</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section Formulaire pour contacter les entreprise -->
+<section class="container-fluid contactNone">
+  <div class="container">
+    <h3>Etablissement</h3>
+    <form class="row" action="formSociete" method="POST">
+      <div class="col-4 inputForm">
+        <input type="text" placeholder="Nom">
+        <input type="text" placeholder="Téléphone">
+        <input type="text" placeholder="E-mail">
+      </div>
+      <div class="col-8 textareaForm">
+        <textarea name="message" id="messagSociete" cols="30" rows="10" placeholder="Message"></textarea>
+        <button>Envoyer</button>
+      </div>
+
+    </form>
+  </div>
+</section>
+{% endblock %}
+
+
+
+
+{% block scripts %}  
+<!-- Javascript pour leaflet -->
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+  integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+  crossorigin="">
+</script>  
+
+<script>   // Script affichage de ma map
+// Variable de ma map
+var mymap = L.map('myMap').setView([46.866313, 5.022708], 5.70);
+L.tileLayer('https://api.mapbox.com/styles/v1/fenrir117/cjw1qta3m04ey1co2ypm3gcaf/tiles/256/{z}/{x}/{y}?&access_token=pk.eyJ1IjoiZmVucmlyMTE3IiwiYSI6ImNqdzFxaXZqYzBtb3A0M28yaGkxOTFtMzMifQ.UBw6HvivdCZjz2ZY2uipmA#10.0/42.362400/-71.020000/0}'
+  , {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18,
+      id: 'mapbox.streets',
+      accessToken: 'pk.eyJ1IjoiZmVucmlyMTE3IiwiYSI6ImNqdzFxaXZqYzBtb3A0M28yaGkxOTFtMzMifQ.UBw6HvivdCZjz2ZY2uipmA'
+  }).addTo(mymap);
+
+
+// ajout point sur la map
+{% for item in result %}
+var marker = L.marker([{{ item.LATITUDE }}, {{ item.LONGITUDE }}]).addTo(mymap);
+marker.addEventListener("click", broly);
+console.log('plop');
+{% endfor %}
+
+
+// var x = window.matchMedia("(max-width: 991px)").matches;
+var test = document.querySelector('.DMLA');
+var card = document.querySelector('.cardSearch');
+// marker.addEventListener("click", broly);
+function broly() {
+    console.log('ssj');
+
+    if (window.matchMedia("(max-width: 991px)").matches) {
+        console.log('coucou');
+        marker.addEventListener("click", broly);
+        card.style.transform = "initial";
+    }
+}
+</script>
+
+
+<script src="public/js/contact_entreprise.js"></script>
+{% endblock %}

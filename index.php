@@ -15,6 +15,7 @@ if (!array_key_exists(3, $parts)) {
 
 
 
+
 // cette partie devrait virer dans le contrôleur
 // twig
 require_once 'vendor/autoload.php';
@@ -25,7 +26,10 @@ $twig = new \Twig\Environment($loader);
 
 // router
 switch ($parts[3]) {
-    case '': 
+    case '':
+        // AFFICHER LA PAGE D'ACCUEIL
+        break;
+    case '/':
         // AFFICHER LA PAGE D'ACCUEIL
         break;
     case 'accueil':
@@ -36,17 +40,52 @@ switch ($parts[3]) {
         require_once 'controllers/Handi_Controller.php';
         $handiController = new Handi_Controller();
         // à utiliser une fois le twig dans le contrôleur
-        // $handiController->c_GetAll();
+        $handiController->c_GetAll($twig);
         // en attendant
-        $result = $handiController->c_GetAll();
+        // $result = $handiController->c_GetAll();
         // cette partie devrait virer dans le contrôleur
+        // echo $twig->render('main.html.twig', [
+        //     'result' => $result, 
+        //     'titi' => 'totobabar'
+        // ]);
+        break;
+        // case 'etablissement':
+        //     require_once 'controllers/Handi_Controller.php';
+        //     $handiController = new Handi_Controller();
+        //     $result = $handiController->c_GetCompany($parts[4]);
+        //     echo $twig->render('layout.html.twig', [
+        //         'result' => $result,
+        //         'test' => "ok"
+        //     ]);
+        // break;
+        // case 'handicap':
+        //     require_once 'controllers/Handi_Controller.php';
+        //     $handiController = new Handi_controller();
+        //     $result = $handiController->c_GetHandi($parts[5]);
+        //     echo $twig->render('layout.html.twig', [
+        //         'result' => $result,
+        //         'test' => "ok"
+        //     ]);
+        // break;
+    case 'zoom':
+        require_once 'controllers/Handi_Controller.php';
+        $handiController = new Handi_controller();
+        $result = $handiController->c_GetZoom($parts[6]);
         echo $twig->render('layout.html.twig', [
             'result' => $result,
             'test' => "ok"
         ]);
         break;
-    // AJOUTER DES CAS
-    default :
+    case 'filtre':
+        require_once 'controllers/Handi_Controller.php';
+        $handiController = new Handi_controller();
+        $result = $handiController->c_GetFilter($_POST);
+        echo $twig->render('layout.html.twig', [
+            'result' => $result,
+            'test' => "ok"
+        ]);
+        break;
+    default:
         // FAIRE UNE PAGE 404
         // EN ATTENDANT 
         echo 'ERREUR 404';
@@ -57,13 +96,19 @@ switch ($parts[3]) {
 
 //CONTROLLER
 // function nomDeLaFunction(){
-    //CHARGEMENTDU MODEL
-    //RECUPERATION DES DONNEES
-    // CHARGEMENT DE LA VIEW + DONNEES  // marche pas pour l'instant, obligé de faire depuis index.php
+//CHARGEMENTDU MODEL
+//RECUPERATION DES DONNEES
+// CHARGEMENT DE LA VIEW + DONNEES  // marche pas pour l'instant, obligé de faire depuis index.php
 // }
 
 //MODEL
-    //connexion BDD
-    // REQUETE SQL
-    // STOCKAGE DES DONNES DANS UNE VARIABLE
-    //FERMETURE BDD
+//connexion BDD
+// REQUETE SQL
+// STOCKAGE DES DONNES DANS UNE VARIABLE
+//FERMETURE BDD
+
+
+
+
+
+
