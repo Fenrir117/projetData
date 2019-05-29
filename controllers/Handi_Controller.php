@@ -15,6 +15,7 @@ class Handi_Controller extends Controller {
 
     // want to display all marker on map
     public function c_GetAll ($twig) {
+        echo 'lughl';
         // build a new model object
         $handiModel = new Handi_Model();
         // get data from model
@@ -28,16 +29,30 @@ class Handi_Controller extends Controller {
     
     
     // want to display all marker on map
-    public function c_GetZoom ($_CID) {
+    public function c_GetZoom ($_CID, $twig) {
         // build a new model object
         $handiModel = new Handi_Model();
         // get data from model
-        $response = $handiModel->dbGetZoom($_CID);
+        $result = $handiModel->dbGetZoom($_CID);
+
+        $zoomInfos = $result[0];
         // build view 
         // marche pas pour l'instant
         // $this->displayView($response);
         // donc on y va comme ça en attendant de trouver une soluce
-        return $response;
+        // return $response;
+        // var_dump($zoomInfos['HANDICAPS']);
+        $template = $twig->load('main.html.twig');
+        echo $template->renderBlock('blockZoom', 
+                        ['etablissement' => $zoomInfos['ETABLISSEMENT'],
+                        'activite' => $zoomInfos['ACTIVIT'],
+                        'telephone' => $zoomInfos['TELEPHONE'],
+                        'adresse' => $zoomInfos['ADRESSE'],
+                        'codePostal' => $zoomInfos['CODEPOSTAL'],
+                        'ville' => $zoomInfos['VILLE'],
+                        'email' => $zoomInfos['EMAILCONTACT'],
+                        'handicaps' => $zoomInfos['HANDICAPS']
+                        ]);
     }
 
 

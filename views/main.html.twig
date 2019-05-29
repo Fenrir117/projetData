@@ -25,19 +25,32 @@
             <div class="col-12 col-lg-8 offset-lg-0 mapApi" id="myMap"></div>
 
             <!-- Cadre avec les informations de l'etablissement -->
-            <div class="col-12 col-lg-4 offset-lg-0 cardSearch">
-                <h2>Information sur société labelisée</h2>
+            <div class="col-12 col-lg-4 offset-lg-0 cardSearch" id="zoom">
+                {% block blockZoom %}
+                <h2>Information sur la société labelisée</h2>
                 <div class="nameInfos">
-                    <h3>Etablissement</h3>
-                    <p>Activité</p>
+                    <h3>{{etablissement}}</h3>
+                    <div id="handiAccepted"> 
+                        {% if handicaps is defined %}
+                            {% for item in handicaps|split(' ; ') %}
+                                <img class="img-fluid" src="public/img/{{item}}.jpg" alt="Logo officiel handicap {{item}}">
+                            {% endfor %}                        
+                        {% endif %}
+                    </div>
+                    <p>{{activite}}</p>
                 </div>
-                <img class="img-fluid" src="" alt="">
                 <div class="adressInfos">
-                    <p>Adresse</p>
-                    <p>Code postale</p>
-                    <p>Ville</p>
-                    <button class="contactSociete">Contacter l'Entreprise</button>
+                    <p>0{{telephone}}</p>
+                    <p>{{adresse}}</p>
+                    <p>{{codePostal}}</p>
+                    <p>{{ville}}</p>
+                    <button class="contactSociete" data-email={{email}}>Contacter l'Entreprise</button>
                 </div>
+
+               
+
+
+                {% endblock %}
             </div>
         </div>
     </div>
@@ -87,23 +100,12 @@
 
 
     // ajout point sur la map
-    {
-        %
-        for item in result %
-    }
-    var marker = L.marker([{
-        {
-            item.LATITUDE
-        }
-    }, {
-        {
-            item.LONGITUDE
-        }
-    }]).addTo(mymap);
-    marker.addEventListener("click", broly);
-    console.log('plop'); {
-        % endfor %
-    }
+    {% for item in result %}
+        var marker = L.marker([{{ item.LATITUDE }}, {{ item.LONGITUDE }}], {cid: {{item.CID}} }).addTo(mymap);
+        
+        marker.addEventListener("click", broly);
+       // console.log('result loop in main.html.twig'); 
+    {% endfor %}
 
 
     // var x = window.matchMedia("(max-width: 991px)").matches;
@@ -111,27 +113,40 @@
     var card = document.querySelector('.cardSearch');
     // marker.addEventListener("click", broly);
     function broly() {
-        console.log('ssj');
 
         if (window.matchMedia("(max-width: 991px)").matches) {
             console.log('coucou');
             marker.addEventListener("click", broly);
             card.style.transform = "initial";
         }
-        xhrRequest();
+        zoomRequest(this.options.cid);
     }
 
-    function zoomRequest() {
-
+    function zoomRequest(cid) {
+        data = new FormData();
+        data.append('cid', cid);
         var zoomReq = new XMLHttpRequest();
-        zoomReq.addEventListener('load', function(e) {
-            var arrayBuffer = zoomReq.response;
-            console.log('return from main.html.twig script zoomRequest()');
-            // return arrayBuffer; 
+     //   zoomReq.addEventListener('load', function(e) {  
+        zoomReq.addEventListener('readystatechange', function(e) { 
+            if (zoomReq.readyState === XMLHttpRequest.DONE && zoomReq.status === 200) {
+
+              //  var arrayBuffer = zoomReq.response;
+//console.log('return from main.html.twig script zoomRequest()');
+             //   console.log(arrayBuffer);
+                // return arrayBuffer; 
+            //    console.log(zoomReq.responseText);
+                zoomDiv = document.querySelector('#zoom');
+                zoomDiv.innerHTML = zoomReq.responseText;
+
+
+                var button = document.querySelector('.contactSociete');
+                button.addEventListener("click", loadContact);
+
+            }
         });
-        zoomReq.open("POST", "controlleurs/zoom.php");
-        zoomReq.responseType = "arraybuffer";
-        zoomReq.send();
+        zoomReq.open("POST", "/projet_018_data/app/zoom");
+      //  zoomReq.responseType = "arraybuffer";
+        zoomReq.send(data);
     }
 </script>
 

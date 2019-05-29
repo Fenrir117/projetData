@@ -74,13 +74,14 @@ switch ($parts[3]) {
         //     ]);
         // break;
     case 'zoom':
+        // require_once 'controllers/zoom.php';
         require_once 'controllers/Handi_Controller.php';
         $handiController = new Handi_controller();
-        $result = $handiController->c_GetZoom($parts[6]);
-        echo $twig->render('layout.html.twig', [
-            'result' => $result,
-            'test' => "ok"
-        ]);
+        $result = $handiController->c_GetZoom($_POST['cid'], $twig);
+        // echo $twig->render('layout.html.twig', [
+        //     'result' => $result,
+        //     'test' => "ok"
+        // ]);
         break;
     // case 'filtre':
     //     require_once 'controllers/Handi_Controller.php';

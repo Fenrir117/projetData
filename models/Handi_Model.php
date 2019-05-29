@@ -83,7 +83,7 @@ class Handi_Model extends Model  {
         // connect to database
         $pdo = parent::dbConnect();
         // the query
-        $query = "SELECT `CID` , `ETABLISSEMENT` , `ACTIVIT` , `HANDICAPS` ,  , `CONTACT` , `EMAILCONTACT` , `SITEWEB` , `TELEPHONE` , `FAX` , `ADRESSE` , `CODEPOSTAL` , `VILLE` 
+        $query = "SELECT `CID`, `ETABLISSEMENT`, `ACTIVIT` ,`HANDICAPS`, `CONTACT`, `EMAILCONTACT`, `SITEWEB`, `TELEPHONE`, `ADRESSE`, `CODEPOSTAL`, `VILLE` 
                     FROM `infos`
                     WHERE `CID`= $_CID;";
                     // prepare the query
@@ -91,11 +91,11 @@ class Handi_Model extends Model  {
         // launch the query
         $request->execute();
         // put the request result in an array
-        $result = $request->fetchAll();
-        // return the result
-        return $result;
+        $result = $request->fetchAll(PDO::FETCH_ASSOC);
         // disconnect from database
         parent::dbDisconnect($pdo);
+        // return the result
+        return $result;
     }
     
     
