@@ -1,0 +1,179 @@
+@charset "UTF-8";
+body {
+  background-color: #323232;
+  color: white;
+}
+
+body #align {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 220vh;
+}
+
+body #jessy {
+  text-align: center;
+}
+
+body #je {
+  margin-left: 22%;
+  height: 17vh;
+  width: 25vh;
+  border-radius: 50%;
+  background-image: url("../picture/image_copieur");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+body #je:hover #hover1 {
+  display: block;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 2px white solid;
+  z-index: 900;
+  color: black;
+  height: 17vh;
+  width: 25vh;
+}
+
+body #julien {
+  text-align: center;
+}
+
+body #ju {
+  margin-left: 24%;
+  height: 17vh;
+  width: 25vh;
+  border-radius: 50%;
+  background-image: url("../picture/k.jpg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+body #ju:hover #hover2 {
+  display: block;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 2px white solid;
+  z-index: 900;
+  color: black;
+  height: 17vh;
+  width: 25vh;
+}
+
+body #richard {
+  text-align: center;
+}
+
+body #ri {
+  height: 17vh;
+  width: 25vh;
+  border-radius: 50%;
+  background-image: "";
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+body #ri:hover #hover3 {
+  display: block;
+  margin-top: 10%;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 2px white  solid;
+  z-index: 900;
+  color: black;
+  height: 17vh;
+  width: 25vh;
+}
+
+body #hover1 {
+  display: none;
+  background-color: black;
+}
+
+body #hover2 {
+  display: none;
+  background-color: black;
+}
+
+body #hover3 {
+  display: none;
+  background-color: black;
+}
+
+body #pourquoi {
+  margin-top: 10vh;
+}
+
+body .small_underline {
+  border: 2px solid black;
+  width: 40px;
+  display: block;
+}
+
+body .small_underline--red {
+  border: 2px solid red;
+}
+
+body .title--red {
+  color: red;
+}
+
+body .container-img {
+  position: relative;
+  cursor: pointer;
+}
+
+body .container-img::after {
+  /* technique remplacant le ::after quand contenu trop important */
+  content: '+';
+  width: 270px;
+  height: 270px;
+  text-align: center;
+  line-height: 270px;
+  background-color: rgba(0, 0, 0, 0.42);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  font-size: 1.7rem;
+  opacity: 0;
+  -webkit-transition: opacity .800s linear;
+  transition: opacity .800s linear;
+}
+
+body .container-img:hover::after {
+  /* technique remplacant le ::after quand contenu trop important */
+  opacity: 1;
+  -webkit-transition: opacity .800s linear;
+  transition: opacity .800s linear;
+}
+
+body .msg-error {
+  display: none;
+  color: red;
+  margin-left: 15px;
+  font-size: .85rem;
+}
+
+body .msg-error--show {
+  display: inline-block;
+}
+
+body .msg-error > span {
+  display: inline-block;
+  /* pas besoin de mettre display none étant donné que son parent l'est dèja*/
+  background-color: red;
+  color: white;
+  padding: 5px 8px;
+}
+
+body .error {
+  /* pour les input */
+  border: 1px solid red;
+}
+/*# sourceMappingURL=style.css.map */
