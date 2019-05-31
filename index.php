@@ -41,7 +41,9 @@ switch ($parts[3]) {
         $graphController->c_graph($twig);
         break;
     case 'contact':
-        // AFFICHER LA PAGE DE CONTACT
+        require_once 'controllers/Contact_Controller.php';
+        $contactController = new Contact_Controller();
+        $contactController->c_contact($twig);   
         break;
     // EN ATTENDANT LE CAS CHOISI EN GROUPE :
     case 'all':
@@ -73,18 +75,19 @@ switch ($parts[3]) {
         //     echo $twig->render('layout.html.twig', [
         //         'result' => $result,
         //         'test' => "ok"
-        //     ]);
+        //     ]);   
         // break;
     case 'zoom':
         // require_once 'controllers/zoom.php';
         require_once 'controllers/Handi_Controller.php';
         $handiController = new Handi_controller();
-        $result = $handiController->c_GetZoom($_POST['cid'], $twig);
+        $handiController->c_GetZoom($_POST['cid'], $twig);
+        //$result = $handiController->c_GetZoom($_POST['cid'], $twig);
         // echo $twig->render('layout.html.twig', [
         //     'result' => $result,
         //     'test' => "ok"
         // ]);
-        break;
+        break; 
     // case 'filtre':
     //     require_once 'controllers/Handi_Controller.php';
     //     $handiController = new Handi_controller();

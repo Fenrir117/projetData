@@ -16,22 +16,24 @@ class Graph_Controller extends Controller {
         $dbTables = array(0 => 'juin2016',
                           1 => 'janvier2017');
         foreach ($dbTables as $dbTable) {
-            echo $dbTable.'<br>';
             $var = $this->c_NbCompagniesByHandicap($dbTable);
             $graphInfos[$dbTable]['nbCompaniesByHandicap'] = $var;
             $var = $this->c_NbCompaniesByRegion($dbTable);
             $graphInfos[$dbTable]['nbCompaniesByRegion'] = $var;
             $var = $this->c_NbCompaniesByHandicapByRegion($dbTable);
-            $graphInfos[$dbTable]['nbCompaniesByregionByHandicap'] = $var;
+            $graphInfos[$dbTable]['nbCompaniesByRegionByHandicap'] = $var;
         }
         // var_dump( $var);
        var_dump( $graphInfos);
     }
-    // Schéma de $graphInfos :
-    // $graphInfos['graph2017']['nbCompaniesByHandicap']['handicap'] = string 'leNombreDEntreprises';
-    // $graphInfos['graph2017']['nbCompaniesByRegion']['region'] = string 'leNombreDEntreprises';
-    // $graphInfos['graph2017']['nbCompaniesByRegionByHandicap']['le nom de la région']['le nom du handicap'] = leNombreDEntreprises;
+    // Schéma de $graphInfos : les données reçues par la page
+    // $graphInfos[$dbTableName]['nbCompaniesByHandicap'][$handicap] = string 'leNombreDEntreprises';
+    // $graphInfos[$dbTableName]['nbCompaniesByRegion'][$region] = string 'leNombreDEntreprises';
+    // $graphInfos[$dbTableName]['nbCompaniesByRegionByHandicap'][$region][$handicap] = string 'leNombreDEntreprises';
 
+
+
+    
 
     // $graphInfos['2017']['nbCompaniesByHandicap']['handicap'] = string 'leNombreDEntreprises';
     // $graphInfos['2017']['nbCompaniesByregion']['region'] = string 'leNombreDEntreprises';
