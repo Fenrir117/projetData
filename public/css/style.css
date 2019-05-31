@@ -1,3 +1,294 @@
-h1 {
-    color: red;
+* {
+  margin: 0;
+  padding: 0;
 }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+h1 {
+  padding: 80px 0;
+  text-align: right;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  padding: 80px 0;
+}
+
+header .navbar {
+  background-color: #013b8d;
+  z-index: 1010;
+  position: fixed;
+  padding: 25px 11%;
+  border-bottom: 2px solid #013b8d;
+}
+
+header .navbar .navbar-brand {
+  color: white;
+}
+
+header .navbar .menuHeader {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+header .navbar .menuHeader .nav-link {
+  color: white;
+}
+
+header .choiceVersion {
+  padding: 100px 11% 0 11%;
+}
+
+header .choiceVersion ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+section {
+  padding-bottom: 80px;
+  background-color: white;
+}
+
+@media only screen and (max-width: 991px) {
+  section .contentMap {
+    position: relative;
+  }
+}
+
+section .contentMap .cardSearch {
+  height: 600px;
+  border: 1px #013b8d solid;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  text-align: center;
+}
+
+section .contentMap .cardSearch button {
+  background-color: #013b8d;
+  color: white;
+  padding: 10px 0;
+  border: none;
+  width: 50%;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 991px) {
+  section .contentMap .cardSearch {
+    position: absolute;
+    -webkit-transform: translateX(-150%);
+            transform: translateX(-150%);
+    z-index: 1005;
+  }
+}
+
+section .contentMap .mapApi {
+  height: 600px;
+}
+
+.contactNone {
+  background-color: #013b8d;
+  display: none;
+}
+
+.contactNone h3 {
+  color: white;
+}
+
+.contactNone form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.contactNone form .inputForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contactNone form .inputForm input {
+  padding: 10px 20px;
+  margin: 15px 0;
+  border-radius: 5px;
+  border-color: gainsboro;
+  background-color: #013b8d;
+}
+
+.contactNone form .inputForm input::-webkit-input-placeholder {
+  color: white;
+  font-size: 1.3rem;
+}
+
+.contactNone form .inputForm input:-ms-input-placeholder {
+  color: white;
+  font-size: 1.3rem;
+}
+
+.contactNone form .inputForm input::-ms-input-placeholder {
+  color: white;
+  font-size: 1.3rem;
+}
+
+.contactNone form .inputForm input::placeholder {
+  color: white;
+  font-size: 1.3rem;
+}
+
+.contactNone form .textareaForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contactNone form .textareaForm textarea {
+  padding: 10px 20px;
+  margin: 15px 0;
+  border-radius: 5px;
+  border-color: gainsboro;
+  background-color: #013b8d;
+}
+
+.contactNone form .textareaForm textarea::-webkit-input-placeholder {
+  color: white;
+  font-size: 1.3rem;
+}
+
+.contactNone form .textareaForm textarea:-ms-input-placeholder {
+  color: white;
+  font-size: 1.3rem;
+}
+
+.contactNone form .textareaForm textarea::-ms-input-placeholder {
+  color: white;
+  font-size: 1.3rem;
+}
+
+.contactNone form .textareaForm textarea::placeholder {
+  color: white;
+  font-size: 1.3rem;
+}
+
+.contactNone form button {
+  background-color: white;
+  color: #013b8d;
+  border: none;
+  padding: 10px 0;
+  width: 50%;
+  border-radius: 5px;
+  font-size: 1.5rem;
+}
+
+footer {
+  color: white;
+  padding: 80px 0;
+  background-color: #323232;
+}
+
+footer .infoFooter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+footer .socialNetwork {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+footer .socialNetwork .nom p {
+  margin-bottom: 0;
+  padding: 15px;
+  margin: 10px;
+}
+
+footer .socialNetwork .github {
+  margin: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+footer .socialNetwork .github a {
+  padding: 10px 12px;
+  border: 1px white solid;
+  border-radius: 50%;
+}
+
+footer .socialNetwork .github a:hover {
+  border-color: gold;
+  background-color: #013b8d;
+  color: white;
+}
+
+footer .socialNetwork .linkedin {
+  margin: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+footer .socialNetwork .linkedin a {
+  padding: 10px 12px;
+  border: 1px white solid;
+  border-radius: 50%;
+}
+
+footer .socialNetwork .linkedin a:hover {
+  border-color: gold;
+  background-color: white;
+  color: #013b8d;
+}
+/*# sourceMappingURL=style.css.map */

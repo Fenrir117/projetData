@@ -17,36 +17,44 @@ class Graph_Model extends Model {
     }   
     
     
-    private function dbGetRegions () { 
+    private function dbGetRegions ($_dbTable) { 
+        echo 'récup régions<br>';
         $pdo = parent::dbConnect();       
         /*  DISTINCT so we won't have twice the same region
             WHERE region != '' because one value is missing */
-        $query = "SELECT DISTINCT `REGION` FROM `infos` WHERE `REGION` <> '';";
+        $query = "SELECT DISTINCT `REGION` FROM $_dbTable WHERE `REGION` <> '';";
         //$query = "SELECT * FROM `infos` WHERE `REGION` = '';";
+        echo $query.'<br>';
         $request = $pdo->prepare($query);
         $request->execute();
         $regions = $request->fetchAll(PDO::FETCH_ASSOC);
         parent::dbDisconnect($pdo);
+        
+        var_dump($regions);
+        echo '<br>';
         return $regions;
     }
  
 
-    public function dbGet2017NbCompagniesByHandicap () {
+    public function dbGetNbCompagniesByHandicap ($_dbTable) {
         $pdo = parent::dbConnect();
         $result = [];
         foreach (self::$handicaps as $handicap) {
             $query = "SELECT COUNT(*) 
-                        FROM `infos` 
+                        FROM $_dbTable 
                         WHERE HANDICAPS LIKE '%$handicap%';";
             $request = $pdo->prepare($query);
             $request->execute();
             $results[$handicap] = $request->fetchColumn();
         }
+        echo 'NbCompagniesByHandicap ('.$_dbTable.')<br>';
+        var_dump($_dbTable);
         parent::dbDisconnect($pdo);
         return $results;
     }
 
-    public function dbGet2017NbCompaniesByRegion () {
+    public function dbGetNbCompaniesByRegion ($_dbTable) {
+        echo 'NbCompaniesByRegion ('.$_dbTable.')';
         $pdo = parent::dbConnect();
         // first we need listed regions from db 
         /*  DISTINCT so we won't have twice the same region
@@ -57,9 +65,10 @@ class Graph_Model extends Model {
     //    $request = $pdo->prepare($query);
     //    $request->execute();
     //    $regions = $request->fetchAll(PDO::FETCH_ASSOC);
-        $regions = self::dbGetRegions();
+        $regions = self::dbGetRegions($_dbTable);
         //var_dump($request->fetchAll(PDO::FETCH_ASSOC));
-        //var_dump($var);
+        var_dump($regions);
+        echo '<br>liste régions table '.$_dbTable.'<br>';
         // now we can launch as many requests as regions
         $results = [];
         for ($i=0; $i < count($regions); $i++) {
@@ -69,9 +78,9 @@ class Graph_Model extends Model {
         //    echo $var[$i] . '<br>';
           //  echo 'poujp';
             $region = $regions[$i]['REGION'];
-          //  echo $region;
+            echo '--'.$_dbTable.'--'.$region.'<br>';
             $query = "SELECT COUNT(*)
-            FROM `infos`
+            FROM $_dbTable
             WHERE REGION LIKE '%$region%';";
             $request = $pdo->prepare($query);
             $request->execute();
@@ -93,15 +102,17 @@ class Graph_Model extends Model {
     }
 
 
-    public function dbGet2017NbCompaniesByHandicapByRegion () {
-        $regions = self::dbGetRegions();
+    public function dbGetNbCompaniesByHandicapByRegion ($_dbTable) {
+        echo 'NbCompaniesByHandicapByRegion ('.$_dbTable.')';
+        $regions = self::dbGetRegions($_dbTable);
         $pdo = parent::dbConnect();
+        $results = [];
         for ($i = 0; $i < count($regions); $i++) {
            // var_dump($regions[$i]['REGION']);
             $region = $regions[$i]['REGION'];
             foreach (self::$handicaps as $handicap) {
                 $query = "SELECT COUNT(*)
-                            FROM `infos`
+                            FROM $_dbTable
                             WHERE `REGION` LIKE '%$region%' 
                                 AND `HANDICAPS` LIKE '%$handicap%';";
                 $request = $pdo->prepare($query);

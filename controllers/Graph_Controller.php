@@ -13,19 +13,35 @@ class Graph_Controller extends Controller {
 
 
     public function c_graph ($twig) {
-         $var = $this->c_2017NbCompagniesByHandicap();
-         $graphInfos['graph2017']['nbCompaniesByHandicaps'] = $var;
-        $var = $this->c_2017NbCompaniesByRegion();
-         $graphInfos['graph2017']['nbCompaniesByRegion'] = $var;
-         $var = $this->c_2017NbCompaniesByHandicapByRegion();
-         $graphInfos['graph2017']['nbCompaniesByregionByHandicap'] = $var;
+        $dbTables = array(0 => 'juin2016',
+                          1 => 'janvier2017');
+        foreach ($dbTables as $dbTable) {
+            echo $dbTable.'<br>';
+            $var = $this->c_NbCompagniesByHandicap($dbTable);
+            $graphInfos[$dbTable]['nbCompaniesByHandicap'] = $var;
+            $var = $this->c_NbCompaniesByRegion($dbTable);
+            $graphInfos[$dbTable]['nbCompaniesByRegion'] = $var;
+            $var = $this->c_NbCompaniesByHandicapByRegion($dbTable);
+            $graphInfos[$dbTable]['nbCompaniesByregionByHandicap'] = $var;
+        }
         // var_dump( $var);
        var_dump( $graphInfos);
     }
     // Schéma de $graphInfos :
-    // $graphInfos['graph2017']['nbCompaniesByHandicaps']['handicap'] = string 'leNombreDEntreprises';
-    // $graphInfos['graph2017']['nbCompaniesByregion']['region'] = string 'leNombreDEntreprises';
-    // $graphInfos['graph2017']['nbCompaniesByregionByHandicap']['le nom de la région']['le nom du handicap'] = leNombreDEntreprises;
+    // $graphInfos['graph2017']['nbCompaniesByHandicap']['handicap'] = string 'leNombreDEntreprises';
+    // $graphInfos['graph2017']['nbCompaniesByRegion']['region'] = string 'leNombreDEntreprises';
+    // $graphInfos['graph2017']['nbCompaniesByRegionByHandicap']['le nom de la région']['le nom du handicap'] = leNombreDEntreprises;
+
+
+    // $graphInfos['2017']['nbCompaniesByHandicap']['handicap'] = string 'leNombreDEntreprises';
+    // $graphInfos['2017']['nbCompaniesByregion']['region'] = string 'leNombreDEntreprises';
+    // $graphInfos['2017']['nbCompaniesByregionByHandicap']['le nom de la région']['le nom du handicap'] = leNombreDEntreprises;
+    // $graphInfos['2017']['nbCompaniesByregionByHandicap']['le nom de la région']['le nom du handicap'] = leNombreDEntreprises;
+    // $graphInfos['2019']['CompanyType']['2017'] = leNombreDEntreprises;
+    // $graphInfos['2019']['CompanyType']['2019'] = leNombreDEntreprises;
+    // $graphInfos['2019']['HandicapType']['2017'] = leNombreDEntreprises;
+    // $graphInfos['2019']['HandicapType']['2019'] = leNombreDEntreprises;
+
 
 
 
@@ -37,23 +53,23 @@ class Graph_Controller extends Controller {
     // $graphInfos['graph2017_2019']['HandicapType']['2019'] = leNombreDEntreprises;
 
 
-    public function c_2017NbCompagniesByHandicap () { 
+    public function c_NbCompagniesByHandicap ($_dbTable) { 
         $graphModel = new Graph_Model();
-        $response = $graphModel->dbGet2017NbCompagniesByHandicap();
+        $response = $graphModel->dbGetNbCompagniesByHandicap($_dbTable);
         return $response;
     }
 
 
-    public function c_2017NbCompaniesByregion () {
+    public function c_NbCompaniesByregion ($_dbTable) {
         $graphModel = new Graph_Model();
-        $response = $graphModel->dbGet2017NbCompaniesByRegion();
+        $response = $graphModel->dbGetNbCompaniesByRegion($_dbTable);
         return $response;
     }
 
 
-    public function c_2017NbCompaniesByHandicapByregion () {
+    public function c_NbCompaniesByHandicapByregion ($_dbTable) {
         $graphModel = new Graph_Model();
-        $response = $graphModel->dbGet2017NbCompaniesByHandicapByRegion();
+        $response = $graphModel->dbGetNbCompaniesByHandicapByRegion($_dbTable);
         return $response;
     }
 

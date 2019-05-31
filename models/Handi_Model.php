@@ -2,6 +2,8 @@
 
 class Handi_Model extends Model  {
 
+    private static $dbTable = "janvier2017";
+
 
     public function __construct () {
         parent::__construct();
@@ -21,11 +23,12 @@ class Handi_Model extends Model  {
 
     // we need all locations
     public function dbGetAll () {
+        
         // connect to database
         $pdo = parent::dbConnect();
         // the query
         $query = "SELECT `CID`, `LATITUDE`, `LONGITUDE` , `ETABLISSEMENT`, `ACTIVIT` , `HANDICAPS`
-                 FROM `infos` limit 10;";
+                 FROM `" . self::$dbTable. "`  limit 10;";
         // prepare the query
         $request = $pdo->prepare($query);
         // launch the query
@@ -44,7 +47,7 @@ class Handi_Model extends Model  {
         $pdo = parent::dbConnect();
         // the query
         $query = "SELECT `CID` , `ETABLISSEMENT` , `ACTIVIT` , `HANDICAPS` , `LATITUDE`, `LONGITUDE`
-                    FROM `infos`
+                    FROM `" . self::$dbTable. "`
                     WHERE `ACTIVIT`= $_type;";
                     // prepare the query
         $request = $pdo->prepare($query);
@@ -64,7 +67,7 @@ class Handi_Model extends Model  {
         $pdo = parent::dbConnect();
         // the query
         $query = "SELECT `CID` , `ETABLISSEMENT` , `ACTIVIT` , `HANDICAPS` , `LATITUDE`, `LONGITUDE`
-                    FROM `infos`
+                    FROM `" . self::$dbTable. "`
                     WHERE `HANDICAPS`= $_type;";
                     // prepare the query
         $request = $pdo->prepare($query);
@@ -84,7 +87,7 @@ class Handi_Model extends Model  {
         $pdo = parent::dbConnect();
         // the query
         $query = "SELECT `CID`, `ETABLISSEMENT`, `ACTIVIT` ,`HANDICAPS`, `CONTACT`, `EMAILCONTACT`, `SITEWEB`, `TELEPHONE`, `ADRESSE`, `CODEPOSTAL`, `VILLE` 
-                    FROM `infos`
+                    FROM `" . self::$dbTable. "`
                     WHERE `CID`= $_CID;";
                     // prepare the query
         $request = $pdo->prepare($query);
@@ -132,7 +135,7 @@ class Handi_Model extends Model  {
         } 
         $where .= ";";
         $query = "SELECT `CID` , `ETABLISSEMENT` , `ACTIVIT` , `HANDICAPS` ,  , `CONTACT` , `EMAILCONTACT` , `SITEWEB` , `TELEPHONE` , `FAX` , `ADRESSE` , `CODEPOSTAL` , `VILLE` 
-        FROM `infos`
+        FROM `" . self::$dbTable. "`
         WHERE " . $where ;
     }    
 }
