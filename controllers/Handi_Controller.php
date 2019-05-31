@@ -6,7 +6,7 @@ require_once 'core/Controller.php';
 class Handi_Controller extends Controller {
 
     public function __construct () {
-        // load Model super class
+        // load Controller super class
         parent::__construct();
         // load Model child class
         require_once 'models/Handi_Model.php';

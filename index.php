@@ -36,7 +36,9 @@ switch ($parts[3]) {
         // AFFICHER LA PAGE D'ACCUEIL
         break;
     case 'graph':
-        // AFFICHER LA PAGE DE GRAPH
+        require_once 'controllers/Graph_Controller.php';
+        $graphController = new Graph_Controller();
+        $graphController->c_graph($twig);
         break;
     case 'contact':
         // AFFICHER LA PAGE DE CONTACT

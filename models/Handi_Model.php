@@ -125,7 +125,7 @@ class Handi_Model extends Model  {
             for($i = 0; $i < $handiLength; $i++) {
                 $where .= "`HANDICAPS` LIKE " .$handi[$i];
                 
-                if($i !== ($handilength - 1)) {
+                if($i !== ($handiLength - 1)) {
                     $where .= " AND ";
                 }
             }
