@@ -3,7 +3,7 @@
 
 
 {% block css %}
-
+    <link rel="stylesheet" href="public/css/graph.css">
 {% endblock %}
 
 
@@ -11,7 +11,71 @@
 {% block main %}
 
 <section>
-    <div id="regions2017"></div>
+    <h2>Chiffres 2017</h2>
+    <div id="regions2017">
+        <h3>Nombre d'établissements par région en 2017</h3>
+        {% for region, nbCompanies in graphInfos.janvier2017.nbCompaniesByRegion %}
+            {% if nbCompanies != '' %}
+                <div class="graphBarDiv" style="height: {{ nbCompanies / 2}}px">
+                    <span class="graphBarSpanName">{{ region }}</span>  
+                    <span class="graphBarSpanValue">{{ nbCompanies }}</span>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    
+    <div id="handicaps2017">
+        <h3>Nombre d'établissements par handicap en 2017</h3>
+        {% for handicap, nbCompanies in graphInfos.janvier2017.nbCompaniesByHandicap %}
+            {% if nbCompanies != '' %}
+                <div class="graphBarDiv" style="height: {{ nbCompanies / 8}}px">
+                    <span class="graphBarSpanName">{{ handicap }}</span>  
+                    <span class="graphBarSpanValue">{{ nbCompanies }}</span>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div id="regionsHandicaps2017">
+        <h3>Nombre d'établissements par région par handicap en 2017</h3>
+        <h4>Légende</h4>
+        <p>Moteur<div id="légendeMoteur"></div></p>
+        <p>Visuel<div id="légendeVisuel"></div></p>
+        <p>Auditif<div id="légendeAuditif"></div></p>
+        <p>Mental<div id="légendeMental"></div></p>
+        {% for region, regionArray in graphInfos.janvier2017.nbCompaniesByRegionByHandicap %}
+            <div class="RegionHandicapDiv">
+            {% for handicap, nbCompanies in regionArray %}
+                {% if nbCompanies != '' %}
+                    <div class="graphBarQuartDiv {{ handicap}}" style="height: {{ nbCompanies }}px">
+                        <span class="graphBarSpanValue">{{ nbCompanies }}</span>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            </div>
+            <span class="graphBarSpanName">{{ region }}</span>  
+        {% endfor %}
+    </div>
+</section>
+
+<section>
+    <h2>COMPARAISON 2016- 2017</h2>
+    <div id="regions2016_2017">
+        <h3> Comparaison nombre d'établissements par région entre 2016 et 2017</h3>
+        {% for region, nbCompanies in graphInfos.janvier2017.nbCompaniesByRegion %}
+            {% if nbCompanies != '' %}
+            <div>
+                <div class="graphBarDiv" style="height: {{ nbCompanies / 2}}px">
+                    <span>2017</span>
+                    <span class="graphBarSpanValue">{{ nbCompanies }}</span>
+                </div>
+                <div class="graphBarDiv" style="height: {{ graphInfos.juin2016.nbCompaniesByRegion.{{ region }} / 2}}px">
+                    <span class="graphBarSpanValue">{{ graphInfos.juin2016.nbCompaniesByRegion.{{ region }} }}</span>
+                    <span>2016</span>
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
 </section>
 
 {% endblock %}
@@ -20,7 +84,6 @@
 
 
 
-
 {% block scripts %}
-
 {% endblock %}
+

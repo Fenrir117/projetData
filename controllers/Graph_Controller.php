@@ -24,7 +24,8 @@ class Graph_Controller extends Controller {
             $graphInfos[$dbTable]['nbCompaniesByRegionByHandicap'] = $var;
         }
         // var_dump( $var);
-       var_dump( $graphInfos);
+       //var_dump( $graphInfos);
+       $this->displayView($graphInfos,$twig);
     }
     // Schéma de $graphInfos : les données reçues par la page
     // $graphInfos[$dbTableName]['nbCompaniesByHandicap'][$handicap] = string 'leNombreDEntreprises';
@@ -77,7 +78,9 @@ class Graph_Controller extends Controller {
 
     
     // send to view
-    function displayView ($twig) {
-        echo $twig->render('graph.html.twig');
+    function displayView ($_graphInfos, $twig) {
+        echo $twig->render('graph.html.twig', [
+            'graphInfos' => $_graphInfos
+        ]);
     }
 }

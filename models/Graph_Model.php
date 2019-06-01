@@ -36,6 +36,7 @@ class Graph_Model extends Model {
             $results[$handicap] = $request->fetchColumn();
         }
         parent::dbDisconnect($pdo);
+        arsort($results);
         return $results;
     }
 
@@ -52,12 +53,13 @@ class Graph_Model extends Model {
             $request = $pdo->prepare($query);
             $request->execute();
             $results[$region] = $request->fetchColumn();
-            echo '<br>';             
-            echo $_dbTable;            
-            echo $region;
-            echo '<br>';
+            //echo '<br>';             
+           // echo $_dbTable;            
+           // echo $region;
+           // echo '<br>';
         }
         parent::dbDisconnect($pdo);
+        arsort($results);
         return $results;
     }
     
@@ -79,6 +81,7 @@ class Graph_Model extends Model {
             }
         }
         parent::dbDisconnect($pdo);
+        arsort($results);
         return $results;          
     }
 }
