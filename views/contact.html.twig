@@ -11,65 +11,64 @@
 
 
 {% block main %}
-<section class="container-fluid">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 ">
-                <h1>Qui sommes-nous?</h1>
-                <p>Nous sommes une équipe de trois en formation à "Acces Code School"</p>
-            </div>
-            <div class="col-12 ">
-                <h2>L'equipe</h2>
-            </div>
-            <div id="align">
-                <div class="col-4 col-md-3 ">
-                    <!-- <div id="imagejessy"></div> -->
-                    <!-- <div> <img id="imagejessy"
-                        src="image_copieur" alt="image_jessy_copieur"> -->
-                    <div id="alignjessy">
-                        <p id="jessy">Jessy</p>
-                        <div id="je">
-                            <div id="hover1">Jessy,27 ans,je me suis surtout occupé de la partie front</div>
+
+<body>
+    <section class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 ">
+                    <h1>Qui sommes-nous?</h1>
+                    <p>Nous sommes une équipe de trois en formation à "Acces Code School"</p>
+                </div>
+                <div class="col-12 ">
+                    <h2>L'equipe</h2>
+                </div>
+                <div id="align">
+                    <div class="col-4 col-md-3 ">
+                        <div id="alignjessy">
+                            <p id="jessy">Jessy</p>
+                            <div class="responsivimage" id="je">
+                                <div id="hover1">Jessy,27 ans,je me suis surtout occupé de la partie front</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-4 col-md-3 ">
+                        <div id="alignjulien">
+                            <p id="julien">Julien</p>
+                            <div class="responsivimage" id="ju">
+                                <div id="hover2">Julien,24ans,je me suis occupé de certaines pages pour le front et une
+                                    partie du back. </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-4 col-md-3">
+                        <div id="alignrichard">
+                            <p id="richard">Richard</p>
+                            <div class="responsivimage" id="ri">
+                                <div id="hover3">Richard, 47ans, je me suis surtout occupé de la partie back</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-4 col-md-3 ">
-                    <div id="alignjulien">
-                        <p id="julien">Julien</p>
-                        <div id="ju">
-                            <div id="hover2">Julien,24ans,je me suis occupé de certaines pages pour le front et une
-                                partie du back. </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-4 col-md-3">
-                    <div id="alignrichard">
-                        <p id="richard">Richard</p>
-                        <div id="ri"></div>
-                        <div id="hover3">Richard, 47ans, je me suis surtout occupé de la partie back</div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div id="pourquoi">
+                        <h2>Pourquoi ce site?</h2>
+                        <p>Dans le cadre d'un projet de la formation (utilisation de base de donnée) nous avons
+                            décidé de créer une application aidant les personnes handicapées
+                            à choisir un hôtel/restaurant/gite etc.. qui leur correspond le mieux.</p>
                     </div>
                 </div>
             </div>
-
-            <div class="col-12">
-                <div id="pourquoi">
-                    <h2>pourquoi ce site?</h2>
-                    <p>Dans le cadre d'un projet de la formation (utilisation de base de donnée) nous avons décidé de
-                        créer une application aidant les personnes handicapées
-                        à choisir un hôtel/restaurant/gite etc.. qui leur correspond aux mieux.</p>
-                </div>
-            </div>
-
         </div>
-    </div>
-</section>
-
-<section>
+    </section>
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2>Nous contacter</h2>
+                <h1>Nous contacter</h1>
             </div>
         </div>
     </div>
@@ -106,12 +105,11 @@
             </div>
         </div>
     </div>
-</section>
-{% endblock %}
+    {% endblock %}
 
 
 
 
-{% block scripts %}
-<script src="public/js/contact.js"></script>
-{% endblock %}
+    {% block scripts %}
+    <script src="public/js/contact.js"></script>
+    {% endblock %}

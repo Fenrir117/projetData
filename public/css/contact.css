@@ -1,0 +1,320 @@
+@charset "UTF-8";
+body {
+  background-color: #323232;
+  color: white;
+}
+
+body #align {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  justify-content: space-evenly;
+  width: 220vh;
+}
+
+body #jessy {
+  text-align: center;
+}
+
+/* IMAGE JESSY */
+
+body #je {
+
+  height: 11vw;
+  width: 16vw;
+  border-radius: 50%;
+  background-image: url("../img/image_copieur");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media all and (min-width: 300px) and (max-width: 699px ) {
+  body #je{
+    
+    width: 11vh;
+    height: 16vh;
+    border-radius: 50%;
+    background-image: url("../img/image_copieur");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    } }
+
+    @media all and (min-width: 700px) and (max-width: 1024px ) {
+      body #je{
+        
+        width: 14vh;
+        height: 17vh;
+        border-radius: 50%;
+        background-image: url("../img/image_copieur");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        } }
+
+/* HOVER JESSY */
+
+body #je:hover #hover1 {
+  display: block;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 2px white solid;
+  z-index: 900;
+  color: black;
+  height: 11vw;
+  width: 16vw;
+}
+
+@media screen and (min-width: 100px) and (max-width: 699px ){
+  body #je:hover #hover1{
+
+    width: 29vw;
+    height: 29vw;
+    font-size:12px;
+
+}}
+
+@media screen and (min-width: 700px) and (max-width: 1024px ){
+  body #je:hover #hover1{
+
+    width: 19vw;
+    height: 20vw;
+    font-size:20px;
+
+}}
+
+body #julien {
+  text-align: center;
+}
+
+/* IMAGE JULIEN */
+
+body #ju {
+ /* margin-left: 24%;*/
+  height: 11vw;
+  width: 16vw;
+  border-radius: 50%;
+  background-image: url("../img/k.jpg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media all and (min-width: 300px) and (max-width: 699px ) {
+  body #ju{
+    
+    width: 11vh;
+    height: 16vh;
+    border-radius: 50%;
+    background-image: url("../img/k.jpg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    } }
+
+    @media all and (min-width: 700px) and (max-width: 1024px ) {
+      body #ju{
+        
+        width: 14vh;
+        height: 17vh;
+        border-radius: 50%;
+        background-image: url("../img/k.jpg");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        } }
+
+/* HOVER JULIEN */
+
+body #ju:hover #hover2 {
+  display: block;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 2px white solid;
+  z-index: 900;
+  color: black;
+  height: 11vw;
+  width: 16vw;
+}
+
+@media screen and (min-width: 100px) and (max-width: 699px ) {
+  body #ju:hover #hover2{
+
+    width: 29vw;
+    height: 29vw;
+    font-size:11px;
+}}
+
+@media screen and (min-width: 700px) and (max-width: 1024px ){
+  body #ju:hover #hover2{
+
+    width: 19vw;
+    height: 20vw;
+    font-size:17.5px;
+
+}}
+
+body #richard {
+  text-align: center;
+}
+
+/* IMAGE RICHARD */
+
+body #ri {
+  /* margin-left: 24%; */
+  height: 11vw;
+  width: 16vw;
+  border-radius: 50%;
+  background-image: url("../img/mr_machrichard.jpg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media all and (min-width: 300px) and (max-width: 699px ) {
+  body #ri{
+    
+    width: 11vh;
+    height: 16vh;
+    border-radius: 50%;
+    background-image: url("../img/mr_machrichard.jpg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    } }
+
+    @media all and (min-width: 700px) and (max-width: 1024px ) {
+      body #ri{
+        
+        width: 14vh;
+        height: 17vh;
+        border-radius: 50%;
+        background-image: url("../img/mr_machrichard.jpg");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        } }
+
+/* HOVER RICHARD */
+
+body #ri:hover #hover3 {
+  display: block;
+  /* margin-top: 10%; */
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 2px white  solid;
+  z-index: 900;
+  color: black;
+  height: 11vw;
+  width: 16vw;
+}
+
+@media screen and (min-width: 100px) and (max-width: 699px ){
+  body #ri:hover #hover3{
+
+    width: 29vw;
+    height: 29vw;
+    font-size:12px;
+}}
+
+@media screen and (min-width: 700px) and (max-width: 1024px ){
+  body #ri:hover #hover3{
+
+    width: 19vw;
+    height: 20vw;
+    font-size:20px;
+
+}}
+
+
+body #hover1 {
+  display: none;
+  background-color: black;
+}
+
+body #hover2 {
+  display: none;
+  background-color: black;
+}
+
+body #hover3 {
+  display: none;
+  background-color: black;
+}
+
+body #pourquoi {
+  margin-top: 10vh;
+}
+
+body .small_underline {
+  border: 2px solid black;
+  width: 40px;
+  display: block;
+}
+
+body .small_underline--red {
+  border: 2px solid red;
+}
+
+body .title--red {
+  color: red;
+}
+
+body .container-img {
+  position: relative;
+  cursor: pointer;
+}
+
+body .container-img::after {
+  /* technique remplacant le ::after quand contenu trop important */
+  content: '+';
+  width: 270px;
+  height: 270px;
+  text-align: center;
+  line-height: 270px;
+  background-color: rgba(0, 0, 0, 0.42);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  font-size: 1.7rem;
+  opacity: 0;
+  -webkit-transition: opacity .800s linear;
+  transition: opacity .800s linear;
+}
+
+body .container-img:hover::after {
+  /* technique remplacant le ::after quand contenu trop important */
+  opacity: 1;
+  -webkit-transition: opacity .800s linear;
+  transition: opacity .800s linear;
+}
+/* CSS FORMULAIRE */
+
+body .msg-error {
+  display: none;
+  color: red;
+  margin-left: 15px;
+  font-size: .85rem;
+}
+
+body .msg-error--show {
+  display: inline-block;
+}
+
+body .msg-error > span {
+  display: inline-block;
+  /* pas besoin de mettre display none étant donné que son parent l'est dèja*/
+  background-color: red;
+  color: white;
+  padding: 5px 8px;
+}
+
+body .error {
+  /* pour les input */
+  border: 1px solid red;
+}
+
+/*# sourceMappingURL=style.css.map */

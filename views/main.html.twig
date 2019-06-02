@@ -1,11 +1,8 @@
 {% extends 'base_template.html.twig' %}
 
-
-
 {% block titre %}
 <title>Projet Data</title>
 {% endblock %}
-
 
 
 {% block css %}
@@ -16,63 +13,65 @@
 
 {% block main %}
 <!-- Section avec la map et les informations liées à l'etablissement choisit -->
-<section class="container-fluid">
-    <div class="container">
-        <!-- Titre principal du site -->
-        <h1>Titre du site</h1>
-        <div class="row contentMap">
-            <!-- Map de navigation -->
-            <div class="col-12 col-lg-8 offset-lg-0 mapApi" id="myMap"></div>
+<a href="#topMap"><button class="backMap"><i class="fas fa-map-marked-alt"></i></button></a>
+<section class="container-fluid ">
+  <div class="container">
+    <!-- Titre principal du site -->
+    <h1 id="topMap">Titre du site</h1>
+    <div class="row contentMap">
+      <!-- Map de navigation -->
+      <div class="col-12 mapApi" id="myMap"></div>
 
-            <!-- Cadre avec les informations de l'etablissement -->
-            <div class="col-12 col-lg-4 offset-lg-0 cardSearch" id="zoom">
-                {% block blockZoom %}
-                <h2>Information sur la société labelisée</h2>
-                <div class="nameInfos">
-                    <h3>{{etablissement}}</h3>
-                    <div id="handiAccepted"> 
-                        {% if handicaps is defined %}
-                            {% for item in handicaps|split(' ; ') %}
-                                <img class="img-fluid" src="public/img/{{item}}.jpg" alt="Logo officiel handicap {{item}}">
-                            {% endfor %}                        
-                        {% endif %}
-                    </div>
-                    <p>{{activite}}</p>
-                </div>
-                <div class="adressInfos">
-                    <p>0{{telephone}}</p>
-                    <p>{{adresse}}</p>
-                    <p>{{codePostal}}</p>
-                    <p>{{ville}}</p>
-                    <button class="contactSociete" data-email={{email}}>Contacter l'Entreprise</button>
-                </div>
+      <!-- Cadre avec les informations de l'etablissement -->
+      
+      <div class="col-12 col-lg-4 cardSearch" id="zoom">
+        {% block blockZoom %}
 
-               
-
-
-                {% endblock %}
-            </div>
+        <button class="backCard">X</button>
+        <h2>Information sur société labelisée</h2>
+        <div class="nameInfos">
+          <h3>{{etablissement}}</h3>
+          <div id="handiAccepted">
+            {% if handicaps is defined %}
+            {% for item in handicaps|split(' ; ') %}
+            <img class="img-fluid" src="public/img/{{item}}.jpg" alt="Logo officiel handicap {{item}}">
+            {% endfor %}
+            {% endif %}
+          </div>
+          <p>{{activite}}</p>
         </div>
+        <div class="adressInfos">
+          <p>0{{telephone}}</p>
+          <p>{{adresse}}</p>
+          <p>{{codePostal}}</p>
+          <p>{{ville}}</p>
+          <a href="#ancre"><button class="contactSociete" data-email={{email}}>Contacter l'Entreprise</button></a>
+        </div>
+        {% endblock %}
+
+
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- Section Formulaire pour contacter les entreprise -->
 <section class="container-fluid contactNone">
-    <div class="container">
-        <h3>Etablissement</h3>
-        <form class="row" action="formSociete" method="POST">
-            <div class="col-4 inputForm">
-                <input type="text" placeholder="Nom">
-                <input type="text" placeholder="Téléphone">
-                <input type="text" placeholder="E-mail">
-            </div>
-            <div class="col-8 textareaForm">
-                <textarea name="message" id="messagSociete" cols="30" rows="10" placeholder="Message"></textarea>
-                <button>Envoyer</button>
-            </div>
+  <div class="container">
+    <h3>Etablissement</h3>
+    <form class="row" action="formSociete" method="POST">
+      <div class="col-4 inputForm">
+        <input type="text" placeholder="Nom">
+        <input type="text" placeholder="Téléphone">
+        <input type="text" placeholder="E-mail">
+      </div>
+      <div class="col-8 textareaForm" id="ancre">
+        <textarea name="message" id="messagSociete" cols="30" rows="10" placeholder="Message"></textarea>
+        <button>Envoyer</button>
+      </div>
 
-        </form>
-    </div>
+    </form>
+  </div>
 </section>
 {% endblock %}
 
@@ -82,72 +81,167 @@
 {% block scripts %}
 <!-- Javascript pour leaflet -->
 <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
-    integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
-    crossorigin="">
-</script>
+  integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+  crossorigin="">
+  </script>
+
+<script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script>
+
 
 <script>
-    // Script affichage de ma map
-    // Variable de ma map
-    var mymap = L.map('myMap').setView([46.866313, 5.022708], 5.70);
-    L.tileLayer(
-        'https://api.mapbox.com/styles/v1/fenrir117/cjw1qta3m04ey1co2ypm3gcaf/tiles/256/{z}/{x}/{y}?&access_token=pk.eyJ1IjoiZmVucmlyMTE3IiwiYSI6ImNqdzFxaXZqYzBtb3A0M28yaGkxOTFtMzMifQ.UBw6HvivdCZjz2ZY2uipmA#10.0/42.362400/-71.020000/0}', {
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            maxZoom: 18,
-            id: 'mapbox.streets',
-            accessToken: 'pk.eyJ1IjoiZmVucmlyMTE3IiwiYSI6ImNqdzFxaXZqYzBtb3A0M28yaGkxOTFtMzMifQ.UBw6HvivdCZjz2ZY2uipmA'
-        }).addTo(mymap);
+  // Script affichage de ma map
+  // Variable de ma map
+  // var mymap = L.map('myMap').setView([46.866313, 5.022708], 5.70);
+  // L.tileLayer(
+  //     'https://api.mapbox.com/styles/v1/fenrir117/cjw1qta3m04ey1co2ypm3gcaf/tiles/256/{z}/{x}/{y}?&access_token=pk.eyJ1IjoiZmVucmlyMTE3IiwiYSI6ImNqdzFxaXZqYzBtb3A0M28yaGkxOTFtMzMifQ.UBw6HvivdCZjz2ZY2uipmA#10.0/42.362400/-71.020000/0}', {
+  //         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+  //         maxZoom: 18,
+  //         id: 'mapbox.streets',
+  //         accessToken: 'pk.eyJ1IjoiZmVucmlyMTE3IiwiYSI6ImNqdzFxaXZqYzBtb3A0M28yaGkxOTFtMzMifQ.UBw6HvivdCZjz2ZY2uipmA'
+  //     }).addTo(mymap);
 
 
-    // ajout point sur la map
-    {% for item in result %}
-        var marker = L.marker([{{ item.LATITUDE }}, {{ item.LONGITUDE }}], {cid: {{item.CID}} }).addTo(mymap);
-        
-        marker.addEventListener("click", broly);
-       // console.log('result loop in main.html.twig'); 
-    {% endfor %}
+  // // ajout point sur la map
+  // {% for item in result %}
+  //     var marker = L.marker([{{ item.LATITUDE }}, {{ item.LONGITUDE }}], {cid: {{item.CID}} }).addTo(mymap);
+
+  //     marker.addEventListener("click", broly);
+  //    // console.log('result loop in main.html.twig'); 
+  // {% endfor %}
 
 
-    // var x = window.matchMedia("(max-width: 991px)").matches;
-    var test = document.querySelector('.DMLA');
-    var card = document.querySelector('.cardSearch');
-    // marker.addEventListener("click", broly);
-    function broly() {
+  // Script affichage de ma map
 
-        if (window.matchMedia("(max-width: 991px)").matches) {
-            console.log('coucou');
-            marker.addEventListener("click", broly);
-            card.style.transform = "initial";
-        }
-        zoomRequest(this.options.cid);
+
+  // Variable de ma map
+  var mymap = L.map('myMap').setView([46.866313, 5.022708], 5.70);
+  L.tileLayer('https://api.mapbox.com/styles/v1/fenrir117/cjw1qta3m04ey1co2ypm3gcaf/tiles/256/{z}/{x}/{y}?&access_token=pk.eyJ1IjoiZmVucmlyMTE3IiwiYSI6ImNqdzFxaXZqYzBtb3A0M28yaGkxOTFtMzMifQ.UBw6HvivdCZjz2ZY2uipmA#10.0/42.362400/-71.020000/0}'
+    , {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18,
+      id: 'mapbox.streets',
+      accessToken: 'pk.eyJ1IjoiZmVucmlyMTE3IiwiYSI6ImNqdzFxaXZqYzBtb3A0M28yaGkxOTFtMzMifQ.UBw6HvivdCZjz2ZY2uipmA'
+    }).addTo(mymap);
+
+  var myIcon = L.icon({
+    iconUrl: 'http://localhost/projet_018_Jessy_2019-05-30-13-36/app/public/img/marker.svg',
+    className: 'finalFlash',
+    iconSize: [
+      25, 40
+    ], // taille du repère
+    iconAnchor: [
+      12.5, 46
+    ], // ombre
+    popupAnchor: [-3, -76]
+  });
+ // var marker = {
+ //   icon: icon,
+
+
+ // };
+
+
+  console.log();
+  var markers = L.markerClusterGroup({
+
+
+    iconCreateFunction: function (cluster) {
+      return L.divIcon({
+        html: cluster.getChildCount(),
+        className: 'mycluster',
+        iconSize: L.point(40, 40)
+      });
+
+
+    },
+    showCoverageOnHover: false,
+    removeOutsideVisibleBounds: true,
+    spiderfyOnMaxZoom: true,
+    disableClusteringAtZoom: 13
+  }); // parametre de la function markerClusterGroupe, (d'autres parametres que celui utilisé ici sont disponible)
+
+  // ajout point sur la map
+  {% for item in result %}
+
+    newMarker = L.marker([{{ item.LATITUDE }}, {{ item.LONGITUDE }}],{ 
+        cid: {{ item.CID }}, 
+        icon: myIcon 
+    });
+
+    newMarker.addTo(markers).on('click', broly);
+
+ // markers.addLayer(L.marker([{{ item.LATITUDE }}, {{ item.LONGITUDE }},{ cid: {{ item.CID }} }], marker));
+  //  console.log( markers);
+
+    
+  //markers.addEventListener("click", broly);
+  // markers.addEventListener("click", freezer);
+
+
+  {% endfor %}
+
+  mymap.addLayer(markers);
+  // console.log(cid);
+  // console.log(LATITUDE);
+
+
+  // var x = window.matchMedia("(max-width: 991px)").matches;
+
+  var card = document.querySelector('.cardSearch');
+  var styleInfosHidden = document.querySelector('.cardSearch');
+
+
+  function freezer() {
+    styleInfosHidden.style.visibility = "visible";
+  }
+
+  function broly() {
+    //console.log(marker);
+   // markers.addEventListener("click", freezer);
+   freezer();
+    
+    
+    // Apparition de mon cadre d'informations des etablissement
+    var styleInfosHidden = document.querySelector('.cardSearch');
+    //console.log(styleInfosHidden);
+
+    if (window.matchMedia("(max-width: 991px)").matches) {
+      console.log('coucou');
+    //  markers.addEventListener("click", broly);
+      card.style.transform = "initial";
     }
+    zoomRequest(this.options.cid);
 
-    function zoomRequest(cid) {
-        data = new FormData();
-        data.append('cid', cid);
-        var zoomReq = new XMLHttpRequest();
-     //   zoomReq.addEventListener('load', function(e) {  
-        zoomReq.addEventListener('readystatechange', function(e) { 
-            if (zoomReq.readyState === XMLHttpRequest.DONE && zoomReq.status === 200) {
+  }
+  function zoomRequest(_cid) {
+    data = new FormData();
+    data.append('cid', _cid);
+    var zoomReq = new XMLHttpRequest();
+    console.log(_cid);
+    //   zoomReq.addEventListener('load', function(e) {  
+    zoomReq.addEventListener('readystatechange', function (e) {
+      if (zoomReq.readyState === XMLHttpRequest.DONE && zoomReq.status === 200) {
 
-              //  var arrayBuffer = zoomReq.response;
-//console.log('return from main.html.twig script zoomRequest()');
-             //   console.log(arrayBuffer);
-                // return arrayBuffer; 
-            //    console.log(zoomReq.responseText);
-                zoomDiv = document.querySelector('#zoom');
-                zoomDiv.innerHTML = zoomReq.responseText;
+        //  var arrayBuffer = zoomReq.response;
+        //console.log('return from main.html.twig script zoomRequest()');
+        //   console.log(arrayBuffer);
+        // return arrayBuffer; 
+        //    console.log(zoomReq.responseText);
+        zoomDiv = document.querySelector('#zoom');
+        zoomDiv.innerHTML = zoomReq.responseText;
+        console.log(zoomDiv);
 
 
-                var button = document.querySelector('.contactSociete');
-                button.addEventListener("click", loadContact);
+        var button = document.querySelector('.contactSociete');
+        button.addEventListener("click", loadContact);
 
-            }
-        });
-        zoomReq.open("POST", "/projet_018_data/app/zoom");
-      //  zoomReq.responseType = "arraybuffer";
-        zoomReq.send(data);
-    }
+      }
+    });
+    zoomReq.open("POST", "/projet_018_Jessy_2019-05-30-13-36/app/zoom");
+    //  zoomReq.responseType = "arraybuffer";
+   // console.log(_cid);
+    zoomReq.send(data);
+  }
 </script>
 
 

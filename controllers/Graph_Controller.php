@@ -23,8 +23,6 @@ class Graph_Controller extends Controller {
             $var = $this->c_NbCompaniesByHandicapByRegion($dbTable);
             $graphInfos[$dbTable]['nbCompaniesByRegionByHandicap'] = $var;
         }
-        // var_dump( $var);
-       //var_dump( $graphInfos);
        $this->displayView($graphInfos,$twig);
     }
     // Schéma de $graphInfos : les données reçues par la page
@@ -32,28 +30,6 @@ class Graph_Controller extends Controller {
     // $graphInfos[$dbTableName]['nbCompaniesByRegion'][$region] = string 'leNombreDEntreprises';
     // $graphInfos[$dbTableName]['nbCompaniesByRegionByHandicap'][$region][$handicap] = string 'leNombreDEntreprises';
 
-
-
-    
-
-    // $graphInfos['2017']['nbCompaniesByHandicap']['handicap'] = string 'leNombreDEntreprises';
-    // $graphInfos['2017']['nbCompaniesByregion']['region'] = string 'leNombreDEntreprises';
-    // $graphInfos['2017']['nbCompaniesByregionByHandicap']['le nom de la région']['le nom du handicap'] = leNombreDEntreprises;
-    // $graphInfos['2017']['nbCompaniesByregionByHandicap']['le nom de la région']['le nom du handicap'] = leNombreDEntreprises;
-    // $graphInfos['2019']['CompanyType']['2017'] = leNombreDEntreprises;
-    // $graphInfos['2019']['CompanyType']['2019'] = leNombreDEntreprises;
-    // $graphInfos['2019']['HandicapType']['2017'] = leNombreDEntreprises;
-    // $graphInfos['2019']['HandicapType']['2019'] = leNombreDEntreprises;
-
-
-
-
-
-    // $graphInfos['graph2017']['nbCompaniesByregionByHandicap']['le nom de la région']['le nom du handicap'] = leNombreDEntreprises;
-    // $graphInfos['graph2017_2019']['CompanyType']['2017'] = leNombreDEntreprises;
-    // $graphInfos['graph2017_2019']['CompanyType']['2019'] = leNombreDEntreprises;
-    // $graphInfos['graph2017_2019']['HandicapType']['2017'] = leNombreDEntreprises;
-    // $graphInfos['graph2017_2019']['HandicapType']['2019'] = leNombreDEntreprises;
 
 
     public function c_NbCompagniesByHandicap ($_dbTable) { 

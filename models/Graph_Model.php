@@ -53,10 +53,6 @@ class Graph_Model extends Model {
             $request = $pdo->prepare($query);
             $request->execute();
             $results[$region] = $request->fetchColumn();
-            //echo '<br>';             
-           // echo $_dbTable;            
-           // echo $region;
-           // echo '<br>';
         }
         parent::dbDisconnect($pdo);
         arsort($results);

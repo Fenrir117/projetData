@@ -16,7 +16,6 @@ if (!array_key_exists(3, $parts)) {
 
 
 
-// cette partie devrait virer dans le contrôleur
 // twig
 require_once 'vendor/autoload.php';
 $loader = new \Twig\Loader\FilesystemLoader('views');
@@ -27,13 +26,19 @@ $twig = new \Twig\Environment($loader);
 // router
 switch ($parts[3]) {
     case '':
-        // AFFICHER LA PAGE D'ACCUEIL
+        require_once 'controllers/Home_Controller.php';
+        $homeController = new Home_Controller();
+        $homeController->c_home($twig);
         break;
     case '/':
-        // AFFICHER LA PAGE D'ACCUEIL
+        require_once 'controllers/Home_Controller.php';
+        $homeController = new Home_Controller();
+        $homeController->c_home($twig);
         break;
     case 'accueil':
-        // AFFICHER LA PAGE D'ACCUEIL
+        require_once 'controllers/Home_Controller.php';
+        $homeController = new Home_Controller();
+        $homeController->c_home($twig);
         break;
     case 'graph':
         require_once 'controllers/Graph_Controller.php';
@@ -49,44 +54,13 @@ switch ($parts[3]) {
     case 'all':
         require_once 'controllers/Handi_Controller.php';
         $handiController = new Handi_Controller();
-        // à utiliser une fois le twig dans le contrôleur
         $handiController->c_GetAll($twig);
-        // en attendant
-        // $result = $handiController->c_GetAll();
-        // cette partie devrait virer dans le contrôleur
-        // echo $twig->render('main.html.twig', [
-        //     'result' => $result, 
-        //     'titi' => 'totobabar'
-        // ]);
         break;
-        // case 'etablissement':
-        //     require_once 'controllers/Handi_Controller.php';
-        //     $handiController = new Handi_Controller();
-        //     $result = $handiController->c_GetCompany($parts[4]);
-        //     echo $twig->render('layout.html.twig', [
-        //         'result' => $result,
-        //         'test' => "ok"
-        //     ]);
-        // break;
-        // case 'handicap':
-        //     require_once 'controllers/Handi_Controller.php';
-        //     $handiController = new Handi_controller();
-        //     $result = $handiController->c_GetHandi($parts[5]);
-        //     echo $twig->render('layout.html.twig', [
-        //         'result' => $result,
-        //         'test' => "ok"
-        //     ]);   
-        // break;
     case 'zoom':
         // require_once 'controllers/zoom.php';
         require_once 'controllers/Handi_Controller.php';
         $handiController = new Handi_controller();
         $handiController->c_GetZoom($_POST['cid'], $twig);
-        //$result = $handiController->c_GetZoom($_POST['cid'], $twig);
-        // echo $twig->render('layout.html.twig', [
-        //     'result' => $result,
-        //     'test' => "ok"
-        // ]);
         break; 
     // case 'filtre':
     //     require_once 'controllers/Handi_Controller.php';
@@ -112,7 +86,7 @@ switch ($parts[3]) {
 // function nomDeLaFunction(){
 //CHARGEMENTDU MODEL
 //RECUPERATION DES DONNEES
-// CHARGEMENT DE LA VIEW + DONNEES  // marche pas pour l'instant, obligé de faire depuis index.php
+// CHARGEMENT DE LA VIEW + DONNEES  
 // }
 
 //MODEL

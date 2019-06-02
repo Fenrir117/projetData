@@ -10,20 +10,8 @@ class Handi_Model extends Model  {
     }
 
 
-    // get all markers
-    // public function dbGetAll ($pdo) {
-    //     $query = "SELECT `CID`, `LATITUDE`, `LONGITUDE`
-    //                 FROM `infos`;";
-    //     $request = $pdo->prepare($query);
-    //     $request->execute();
-    //     $result = $request->fetchAll();
-    //     return $result;
-    // }
-
-
     // we need all locations
-    public function dbGetAll () {
-        
+    public function dbGetAll () {        
         // connect to database
         $pdo = parent::dbConnect();
         // the query
@@ -139,29 +127,3 @@ class Handi_Model extends Model  {
         WHERE " . $where ;
     }    
 }
-
-// $where = '';
-// $handicaps = explode('_', $_POST['handicaps']);
-// $handiLength = count($handicaps);
-// for ($i = 0; $i < $handiLength; $i++) {
-//     if ($i !== 0) {
-//         $where .= ' AND ';
-//     }
-//     $where .= " `HANDICAPS` LIKE " . $handicaps[$i];
-// }
-
-// $query = "SELECT `CID`, `LATITUDE`, `LONGITUDE`
-//             FROM `infos`
-//             WHERE " . $where . ";";
-
-
-
-/* needed requests */
-/* 
-    _ toutes : CID, Nom établissement, activité, type handi, longitude, latitude
-    _ type établissement: CID, Nom établissement, activité, type handi, longitude, latitude 
-    _ type handicap: CID, Nom établissement, activité, type handi, longitude, latitude 
-    _ zoom établissement: CID, etablissement, contact, email contact, site web, telephone, fax ?, 
-                    type handicap, code postal, adresse, ville, activité
-*/
-
