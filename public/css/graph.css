@@ -1,0 +1,65 @@
+.graphBarDiv {
+    display : inline-block;
+    width: 75px;
+    background-color: blue;
+    margin-left: 10px;
+}
+.graphBarSpanName {
+
+}
+
+.graphBarSpanValue{
+
+}
+
+.RegionHandicapDiv{
+    display: inline-block;
+    width:160px;
+    margin-left: 10px;
+
+
+}
+
+.moteur{
+    background-color:red;
+}
+
+.auditif{
+    background-color:green;
+}
+
+.visuel{
+    background-color:blue;
+}
+
+.mental{
+    background-color:yellow;
+}
+
+#légendeMoteur{
+    width:10px;
+    height:10px;
+    background-color:red;
+}
+#légendeAuditif{
+    width:10px;
+    height:10px;
+    background-color:green;
+}
+#légendeVisuel{
+    width:10px;
+    height:10px;
+    background-color:blue;
+}
+
+#légendeMental{
+    width:10px;
+    height:10px;
+    background-color:yellow;
+}
+.graphBarQuartDiv{
+    display : inline-block;
+    width: 15px;
+    margin-left: 5px;
+
+}
