@@ -12,6 +12,7 @@ body #align {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  justify-content: space-evenly;
   width: 220vh;
 }
 
@@ -19,10 +20,12 @@ body #jessy {
   text-align: center;
 }
 
+/* IMAGE JESSY */
+
 body #je {
-  margin-left: 22%;
-  height: 17vh;
-  width: 25vh;
+
+  height: 11vw;
+  width: 16vw;
   border-radius: 50%;
   background-image: url("../picture/image_copieur");
   background-position: center;
@@ -30,24 +33,70 @@ body #je {
   background-repeat: no-repeat;
 }
 
+@media all and (min-width: 300px) and (max-width: 699px ) {
+  body #je{
+    
+    width: 11vh;
+    height: 16vh;
+    border-radius: 50%;
+    background-image: url("../picture/image_copieur");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    } }
+
+    @media all and (min-width: 700px) and (max-width: 1024px ) {
+      body #je{
+        
+        width: 14vh;
+        height: 17vh;
+        border-radius: 50%;
+        background-image: url("../picture/image_copieur");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        } }
+
+/* HOVER JESSY */
+
 body #je:hover #hover1 {
   display: block;
   background-color: rgba(255, 255, 255, 0.7);
   border: 2px white solid;
   z-index: 900;
   color: black;
-  height: 17vh;
-  width: 25vh;
+  height: 11vw;
+  width: 16vw;
 }
+
+@media screen and (min-width: 100px) and (max-width: 699px ){
+  body #je:hover #hover1{
+
+    width: 29vw;
+    height: 29vw;
+    font-size:12px;
+
+}}
+
+@media screen and (min-width: 700px) and (max-width: 1024px ){
+  body #je:hover #hover1{
+
+    width: 19vw;
+    height: 20vw;
+    font-size:20px;
+
+}}
 
 body #julien {
   text-align: center;
 }
 
+/* IMAGE JULIEN */
+
 body #ju {
-  margin-left: 24%;
-  height: 17vh;
-  width: 25vh;
+ /* margin-left: 24%;*/
+  height: 11vw;
+  width: 16vw;
   border-radius: 50%;
   background-image: url("../picture/k.jpg");
   background-position: center;
@@ -55,40 +104,130 @@ body #ju {
   background-repeat: no-repeat;
 }
 
+@media all and (min-width: 300px) and (max-width: 699px ) {
+  body #ju{
+    
+    width: 11vh;
+    height: 16vh;
+    border-radius: 50%;
+    background-image: url("../picture/k.jpg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    } }
+
+    @media all and (min-width: 700px) and (max-width: 1024px ) {
+      body #ju{
+        
+        width: 14vh;
+        height: 17vh;
+        border-radius: 50%;
+        background-image: url("../picture/k.jpg");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        } }
+
+/* HOVER JULIEN */
+
 body #ju:hover #hover2 {
   display: block;
   background-color: rgba(255, 255, 255, 0.7);
   border: 2px white solid;
   z-index: 900;
   color: black;
-  height: 17vh;
-  width: 25vh;
+  height: 11vw;
+  width: 16vw;
 }
+
+@media screen and (min-width: 100px) and (max-width: 699px ) {
+  body #ju:hover #hover2{
+
+    width: 29vw;
+    height: 29vw;
+    font-size:11px;
+}}
+
+@media screen and (min-width: 700px) and (max-width: 1024px ){
+  body #ju:hover #hover2{
+
+    width: 19vw;
+    height: 20vw;
+    font-size:17.5px;
+
+}}
 
 body #richard {
   text-align: center;
 }
 
+/* IMAGE RICHARD */
+
 body #ri {
-  height: 17vh;
-  width: 25vh;
+  /* margin-left: 24%; */
+  height: 11vw;
+  width: 16vw;
   border-radius: 50%;
-  background-image: "";
+  background-image: url("../picture/mr_machrichard.jpg");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
+@media all and (min-width: 300px) and (max-width: 699px ) {
+  body #ri{
+    
+    width: 11vh;
+    height: 16vh;
+    border-radius: 50%;
+    background-image: url("../picture/mr_machrichard.jpg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    } }
+
+    @media all and (min-width: 700px) and (max-width: 1024px ) {
+      body #ri{
+        
+        width: 14vh;
+        height: 17vh;
+        border-radius: 50%;
+        background-image: url("../picture/mr_machrichard.jpg");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        } }
+
+/* HOVER RICHARD */
+
 body #ri:hover #hover3 {
   display: block;
-  margin-top: 10%;
+  /* margin-top: 10%; */
   background-color: rgba(255, 255, 255, 0.7);
   border: 2px white  solid;
   z-index: 900;
   color: black;
-  height: 17vh;
-  width: 25vh;
+  height: 11vw;
+  width: 16vw;
 }
+
+@media screen and (min-width: 100px) and (max-width: 699px ){
+  body #ri:hover #hover3{
+
+    width: 29vw;
+    height: 29vw;
+    font-size:12px;
+}}
+
+@media screen and (min-width: 700px) and (max-width: 1024px ){
+  body #ri:hover #hover3{
+
+    width: 19vw;
+    height: 20vw;
+    font-size:20px;
+
+}}
+
 
 body #hover1 {
   display: none;
@@ -152,6 +291,7 @@ body .container-img:hover::after {
   -webkit-transition: opacity .800s linear;
   transition: opacity .800s linear;
 }
+/* CSS FORMULAIRE */
 
 body .msg-error {
   display: none;
@@ -176,4 +316,5 @@ body .error {
   /* pour les input */
   border: 1px solid red;
 }
+
 /*# sourceMappingURL=style.css.map */
